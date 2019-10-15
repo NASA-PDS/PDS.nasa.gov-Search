@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchFacets from './SearchFacets/SearchFacets';
+import SearchBarFacets from './SearchBarFacets/SearchBarFacets';
 import SearchInput from './SearchInput/SearchInput';
  
 class SearchBar extends Component {
@@ -9,7 +9,7 @@ class SearchBar extends Component {
         return (
             <div>
                 <SearchInput></SearchInput>
-                <SearchFacets></SearchFacets>
+                <SearchBarFacets></SearchBarFacets>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
  
-class DataTypeTabs extends Component {
+class SearchBarFacet extends Component {
     componentDidMount() {
     }
     render() {
@@ -12,4 +12,4 @@ class DataTypeTabs extends Component {
     }
 }
  
-export default DataTypeTabs;
+export default SearchBarFacet;
