@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import logo from './logo.svg';
 import './App.css';
 
 import SearchBar from './components/SearchBar/SearchBar';
+import BrowseView from './components/BrowseView/BrowseView';
+import SearchView from './components/SearchView/SearchView';
 
 class App extends Component {
   render() {
+    const {appReducer} = this.props;
+
     return (
       <div className="App">
         <SearchBar></SearchBar>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  appReducer: state.appReducer
+})
+
+export default connect(mapStateToProps, null)(App);

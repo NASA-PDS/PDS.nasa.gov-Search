@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateSearchInput } from '../../../actions/searchInputAction';
+import { 
+    updateSearchInput, 
+    updateIsSearching 
+} from '../../../actions/appAction';
  
 class SearchInput extends Component {
     componentDidMount() {
     }
 
     state = {
-        input: ''
+        input: '',
+        isSearching: false
     }
 
     handleInputChange = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
+
         this.setState({
-            input: e.target.value
-        })
+            input: e.target.value,
+            isSearching: true
+        }, () => {
+            this.dispatchChange(this.state)
+        });
     }
 
-    updateSearchInput = (e) => {
-        this.props.updateSearchInput(this.state.input);
+    handleSearchButtonClick = (e) => {
+        e.preventDefault();
+
+        this.setState({
+            isSearching: true
+        }, () => {
+            this.dispatchChange(this.state)
+        });
+    }
+
+    dispatchChange = (state) => {
+        this.props.dispatchSearchInput(state.input);
+        this.props.dispatchIsSearching(state.isSearching);
     }
 
     render() {
@@ -31,7 +49,7 @@ class SearchInput extends Component {
                 />
                 <input 
                     type="button"
-                    onClick={this.updateSearchInput}
+                    onClick={this.handleSearchButtonClick}
                 />
             </div>
         );
@@ -43,7 +61,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    updateSearchInput: (input) => dispatch(updateSearchInput(input))
+    dispatchSearchInput: (input) => dispatch(updateSearchInput(input)),
+    dispatchIsSearching: (isSearching) => dispatch(updateIsSearching(isSearching))
 })
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  
