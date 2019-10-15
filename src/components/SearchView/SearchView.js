@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
- 
+import DataTypeTabs from './DataTypeTabs/DataTypeTabs'; 
+
 class SearchView extends Component {
     componentDidMount() {
     }
     render() {
         return (
             <div>
-                search results go here
+                <DataTypeTabs></DataTypeTabs>
             </div>
         );
     }
