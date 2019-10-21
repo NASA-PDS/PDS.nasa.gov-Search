@@ -14,7 +14,12 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
           isSearching: action.payload
       });
-
+    
+    case 'RENDER_SEARCH_RESULTS':
+      return Object.assign({}, state, {
+        searchResults: action.payload
+      });
+    
     default:
       return state;
   }
