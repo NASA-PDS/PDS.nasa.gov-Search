@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { 
     updateSearchInput, 
-    updateIsSearching 
+    updateIsSearching,
+    getSearchResults
 } from '../../../actions/appAction';
  
 class SearchInput extends Component {
@@ -38,6 +39,7 @@ class SearchInput extends Component {
     dispatchChange = (state) => {
         this.props.dispatchSearchInput(state.input);
         this.props.dispatchIsSearching(state.isSearching);
+        this.props.dispatchGetSearchResults(state.input);
     }
 
     render() {
@@ -62,7 +64,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     dispatchSearchInput: (input) => dispatch(updateSearchInput(input)),
-    dispatchIsSearching: (isSearching) => dispatch(updateIsSearching(isSearching))
+    dispatchIsSearching: (isSearching) => dispatch(updateIsSearching(isSearching)),
+    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input))
 })
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  

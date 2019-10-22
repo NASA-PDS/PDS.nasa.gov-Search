@@ -1,6 +1,7 @@
 const initialState = {
   searchInput: '',
-  isSearching: false
+  isSearching: false,
+  searchResults: []
 }
 
 export default (state = initialState, action) => {

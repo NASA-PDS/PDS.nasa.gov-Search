@@ -12,8 +12,9 @@ export const updateIsSearching = (payload) => dispatch => {
     });
 }
 
-export const loadSearchResults = () => dispatch => {
+export const getSearchResults = (payload) => dispatch => {
     dispatch({
-        type: 'LOAD_SEARCH_RESULTS'
+        type: 'LOAD_SEARCH_RESULTS',
+        payload
     });
 }
