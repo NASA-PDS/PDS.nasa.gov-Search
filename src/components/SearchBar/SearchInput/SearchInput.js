@@ -5,6 +5,8 @@ import {
     updateIsSearching,
     getSearchResults
 } from '../../../actions/appAction';
+
+import searchIcon from '../../../assets/images/search_icon_darkgrey@2x.png';
  
 class SearchInput extends Component {
     componentDidMount() {
@@ -44,15 +46,20 @@ class SearchInput extends Component {
 
     render() {
         return (
-            <div>
+            <div className="search">
                 <input 
+                    className="searchInput"
                     type="text"
+                    placeholder="Search"
                     onChange={this.handleInputChange}
                 />
-                <input 
+                <button 
+                    className="searchButton"
                     type="button"
                     onClick={this.handleSearchButtonClick}
-                />
+                >
+                    <img src={searchIcon}/>
+                </button>
             </div>
         );
     }

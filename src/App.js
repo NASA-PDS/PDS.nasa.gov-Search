@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './App.css';
+import './App.scss';
 
 import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
+
+import logo from './assets/images/logo_nasa.png';
 
 class App extends Component {
   render() {
@@ -13,7 +15,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <SearchBar></SearchBar>
+        <div className="header">
+          <img src={logo} 
+            className="headerLogo"
+            alt=""
+          />
+          <SearchBar></SearchBar>
+        </div>
         {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
       </div>
     );

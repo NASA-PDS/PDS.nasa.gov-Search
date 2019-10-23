@@ -20,7 +20,7 @@ class SearchResults extends Component {
         );
         
         return (
-            <div>
+            <div className="searchResults">
                 {searchResults}
             </div>
         );

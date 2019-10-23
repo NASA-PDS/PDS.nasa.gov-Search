@@ -6,7 +6,7 @@ class DataTypeTabs extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="dataTypeTabs">
                 <DataTypeTab title="Data"></DataTypeTab>
                 <DataTypeTab title="Documentation"></DataTypeTab>
                 <DataTypeTab title="Node Search Engines"></DataTypeTab>

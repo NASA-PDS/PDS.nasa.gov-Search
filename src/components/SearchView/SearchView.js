@@ -8,7 +8,7 @@ class SearchView extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="searchView">
                 <DataTypeTabs></DataTypeTabs>
                 <ResultFilters></ResultFilters>
                 <SearchResults></SearchResults>

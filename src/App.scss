@@ -1,0 +1,97 @@
+.App {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.button.dark{
+  opacity: 1;
+  color: #777;
+  border-color: #a5a6a7;
+  height: 30px;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.button.dark:hover{
+  cursor: pointer;
+  background-color: #6083aa;
+  color: white;
+  border-color: #6083aa;
+  opacity: 1;
+}
+
+.header{
+  background: #e4e9ef;
+  display: flex;
+  padding: 10px;
+}
+
+.searchBar{
+  margin: auto;
+}
+
+.headerLogo{
+  max-height: 80px;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput{
+  height: 40px;
+  font-size: xx-large;
+  max-width: 80%;
+}
+
+.searchButton{
+  padding: 0;
+}
+
+.searchBarFacets{
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchView{
+  padding: 10px;
+}
+
+.dataTypeTabs{
+  display: flex;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.resultFilters{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.searchResults{
+  padding: 10px;
+}
+
+.searchResult{
+  border: 1px solid #d8d8d8;
+  padding: 10px;
+}

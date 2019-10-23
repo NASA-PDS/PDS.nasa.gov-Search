@@ -8,8 +8,10 @@ class SearchResult extends Component {
     render() {
         console.log("SEARCH RESULT prop", this.props);
         return (
-            <div>
-                {this.props.key} {this.props.title}
+            <div className="searchResult">
+                <b>{this.props.key} {this.props.title}</b>
+                <br />
+                {this.props.description}
             </div>
         );
     }

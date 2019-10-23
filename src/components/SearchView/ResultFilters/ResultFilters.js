@@ -8,7 +8,7 @@ class ResultFilters extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="resultFilters">
                 <ResultCounter></ResultCounter>
                 <SortFilter></SortFilter>
                 <DateFilter></DateFilter>

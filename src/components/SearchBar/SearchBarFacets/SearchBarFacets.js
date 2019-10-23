@@ -6,7 +6,7 @@ class SearchBarFacets extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="searchBarFacets">
                 <SearchBarFacet title="Target"></SearchBarFacet>
                 <SearchBarFacet title="Mission"></SearchBarFacet>
                 <SearchBarFacet title="Instrument"></SearchBarFacet>

@@ -6,7 +6,7 @@ class DataTypeTab extends Component {
     render() {
         return (
             <div>
-                {this.props.title}
+                <button className="button dark">{this.props.title}</button>
             </div>
         );
     }
