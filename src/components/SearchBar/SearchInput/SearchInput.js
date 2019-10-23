@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { 
     updateSearchInput, 
     updateIsSearching,
-    getSearchResults
+    getSearchResults,
+    getContextSearchResults
 } from '../../../actions/appAction';
 
 import searchIcon from '../../../assets/images/search_icon_darkgrey@2x.png';
@@ -42,6 +43,7 @@ class SearchInput extends Component {
         this.props.dispatchSearchInput(state.input);
         this.props.dispatchIsSearching(state.isSearching);
         this.props.dispatchGetSearchResults(state.input);
+        this.props.dispatchGetContextSearchResults(state.input);
     }
 
     render() {
@@ -67,12 +69,13 @@ class SearchInput extends Component {
 
 const mapStateToProps = state => ({
     ...state
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     dispatchSearchInput: (input) => dispatch(updateSearchInput(input)),
     dispatchIsSearching: (isSearching) => dispatch(updateIsSearching(isSearching)),
-    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input))
-})
+    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input)),
+    dispatchGetContextSearchResults: (input) => dispatch(getContextSearchResults(input))
+});
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  

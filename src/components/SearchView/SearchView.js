@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DataTypeTabs from './DataTypeTabs/DataTypeTabs'; 
 import ResultFilters from './ResultFilters/ResultFilters';
 import SearchResults from './SearchResults/SearchResults';
+import SearchContextResults from './SearchResults/SearchContextResults/SearchContextResults';
 
 class SearchView extends Component {
     componentDidMount() {
@@ -11,7 +12,12 @@ class SearchView extends Component {
             <div className="searchView">
                 <DataTypeTabs></DataTypeTabs>
                 <ResultFilters></ResultFilters>
-                <SearchResults></SearchResults>
+                <div className="searchResultsContainer">
+                    <div></div>
+                    <SearchResults></SearchResults>
+                    <SearchContextResults></SearchContextResults>
+                </div>
+                
             </div>
         );
     }

@@ -21,6 +21,11 @@ export default (state = initialState, action) => {
         searchResults: action.payload
       });
     
+    case 'RENDER_CONTEXT_SEARCH_RESULTS':
+      return Object.assign({}, state, {
+        searchContextResults: action.payload
+      });
+    
     default:
       return state;
   }

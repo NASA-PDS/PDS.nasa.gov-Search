@@ -89,9 +89,21 @@
 
 .searchResults{
   padding: 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 .searchResult{
   border: 1px solid #d8d8d8;
   padding: 10px;
+}
+
+.searchResultsContainer{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.searchContextResults{
+  grid-column-start: 4;
+  grid-column-end: 4;
 }

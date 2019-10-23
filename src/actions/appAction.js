@@ -18,3 +18,10 @@ export const getSearchResults = (payload) => dispatch => {
         payload
     });
 }
+
+export const getContextSearchResults = (payload) => dispatch => {
+    dispatch({
+        type: 'LOAD_CONTEXT_SEARCH_RESULTS',
+        payload
+    });
+}

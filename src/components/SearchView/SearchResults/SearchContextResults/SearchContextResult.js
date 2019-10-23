@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class SearchResult extends Component {
+class SearchContextResult extends Component {
     componentDidMount() {
     }
 
     render() {
-        //console.log("SEARCH RESULT prop", this.props);
+        console.log("SEARCH RESULT prop", this.props);
         return (
-            <div className="searchResult">
+            <div className="searchContextResult">
                 <b>{this.props.key} {this.props.title}</b>
                 <br />
                 {this.props.description}
@@ -21,4 +21,4 @@ const mapStateToProps = state => ({
     ...state
 });
 
-export default connect(mapStateToProps, null)(SearchResult);
+export default connect(mapStateToProps, null)(SearchContextResult);
