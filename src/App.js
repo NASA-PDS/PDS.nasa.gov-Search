@@ -6,8 +6,9 @@ import './App.scss';
 import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
+import Footer from './components/Footer/Footer';
 
-import logo from './assets/images/logo_nasa.png';
+import logo from './assets/images/logo_pds.png';
 
 class App extends Component {
   render() {
@@ -22,7 +23,10 @@ class App extends Component {
           />
           <SearchBar></SearchBar>
         </div>
+
         {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
+
+        <Footer></Footer>
       </div>
     );
   }

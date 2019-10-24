@@ -25,7 +25,7 @@
   opacity: 1;
   color: #777;
   border-color: #a5a6a7;
-  height: 30px;
+  height: 3vh;
   font-size: medium;
   font-weight: 600;
 }
@@ -41,7 +41,7 @@
 .header{
   background: #e4e9ef;
   display: flex;
-  padding: 10px;
+  padding: 1vh;
 }
 
 .searchBar{
@@ -49,7 +49,7 @@
 }
 
 .headerLogo{
-  max-height: 80px;
+  max-height: 10vh;
 }
 
 .search{
@@ -58,9 +58,9 @@
 }
 
 .searchInput{
-  height: 40px;
+  height: 4vh;
   font-size: xx-large;
-  max-width: 80%;
+  max-width: 60vh;
 }
 
 .searchButton{
@@ -73,7 +73,8 @@
 }
 
 .searchView{
-  padding: 10px;
+  padding: 1vh;
+  min-height: 100vh;
 }
 
 .dataTypeTabs{
@@ -84,18 +85,18 @@
 .resultFilters{
   display: flex;
   justify-content: space-around;
-  padding: 10px;
+  padding: 1vh;
 }
 
 .searchResults{
-  padding: 10px;
+  padding: 1vh;
   grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-end: 4;
 }
 
 .searchResult{
   border: 1px solid #d8d8d8;
-  padding: 10px;
+  padding: 1vh;
 }
 
 .searchResultsContainer{
@@ -106,4 +107,26 @@
 .searchContextResults{
   grid-column-start: 4;
   grid-column-end: 4;
+  padding-top: 1vh;
+}
+
+.searchContextResult{
+  padding: 1vh;
+  border: 1px solid #cacaca;
+}
+
+.footer{
+  background: black;
+  padding: 5vh;
+}
+
+.footerLinks{
+  display: flex;
+  justify-content: center;
+}
+
+.footerLinks a{
+  color: white;
+  padding-left: 1vh;
+  padding-right: 1vh;
 }
