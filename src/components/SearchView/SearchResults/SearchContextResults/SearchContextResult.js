@@ -6,12 +6,11 @@ class SearchContextResult extends Component {
     }
 
     render() {
-        console.log("SEARCH RESULT prop", this.props);
+        //console.log("SEARCH RESULT prop", this.props);
         return (
             <div className="searchContextResult">
-                <b>{this.props.key} {this.props.title}</b>
-                <br />
-                {this.props.description}
+                <div className="searchResultTitle">{this.props.title}</div>
+                <div className="searchResultDescription">{this.props.description}</div>
             </div>
         );
     }

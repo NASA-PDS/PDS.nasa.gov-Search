@@ -49,7 +49,7 @@
 }
 
 .headerLogo{
-  max-height: 10vh;
+  max-height: 9vh;
 }
 
 .search{
@@ -61,10 +61,13 @@
   height: 4vh;
   font-size: xx-large;
   max-width: 60vh;
+  border: none;
+  border-radius: 4px;
 }
 
 .searchButton{
   padding: 0;
+  border: none;
 }
 
 .searchBarFacets{
@@ -88,6 +91,13 @@
   padding: 1vh;
 }
 
+.searchFacetGroup{
+  font-size: 1.71em;
+  border: 0.05em solid #BDBDBD;
+  background: #D5D5D5;
+  border-bottom: 1px solid #BDBDBD;
+}
+
 .searchResults{
   padding: 1vh;
   grid-column-start: 2;
@@ -104,6 +114,15 @@
   grid-template-columns: auto auto auto auto;
 }
 
+.searchResultTitle{
+  font-size: 1.71em;
+  margin-bottom: 0.32em;
+}
+
+.searchResultDescription{
+  font-size: 1.1em;
+}
+
 .searchContextResults{
   grid-column-start: 4;
   grid-column-end: 4;
@@ -113,6 +132,15 @@
 .searchContextResult{
   padding: 1vh;
   border: 1px solid #cacaca;
+}
+
+.searchContextResultTitle{
+  font-size: 1.71em;
+  margin-bottom: 0.32em;
+}
+
+.searchContextResultDescription{
+  font-size: 1.1em;
 }
 
 .footer{
