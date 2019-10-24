@@ -6,7 +6,7 @@ function* fetchSearchResults(action){
 
     const endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Collection%20AND%20collection_type:Data%20AND%20text:(' + 
         searchText + 
-        ')&rows=10';
+        ')&rows=12';
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();
@@ -20,7 +20,7 @@ function* fetchContextSearchResults(action){
 
     const endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=product_class:Product_Context%20ANDtext(' + 
         searchText +
-        ')&rows=10';
+        ')&rows=3';
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();

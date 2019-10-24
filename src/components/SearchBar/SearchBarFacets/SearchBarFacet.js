@@ -5,7 +5,7 @@ class SearchBarFacet extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="searchBarFacet">
                 {this.props.title}
             </div>
         );

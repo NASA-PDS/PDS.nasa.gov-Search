@@ -5,8 +5,8 @@ class SortFilter extends Component {
     }
     render() {
         return (
-            <div>
-                Sort by: 
+            <div className="resultFilter">
+                Sort by: <span className="sortByFilter">Relevance</span>
             </div>
         );
     }

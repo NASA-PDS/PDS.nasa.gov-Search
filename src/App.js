@@ -21,6 +21,9 @@ class App extends Component {
             className="headerLogo"
             alt=""
           />
+          <div className="headerTitle">
+            Planetary Data System
+          </div>
           <SearchBar></SearchBar>
         </div>
 

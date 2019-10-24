@@ -5,7 +5,7 @@ class ResultCounter extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="resultFilter">
                 Showing 1-50 of 5510 Results
             </div>
         );

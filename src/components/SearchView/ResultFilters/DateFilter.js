@@ -5,7 +5,7 @@ class DateFilter extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="resultFilter">
                 From Date To Date
             </div>
         );
