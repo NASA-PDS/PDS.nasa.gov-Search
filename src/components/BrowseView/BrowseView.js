@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import logo from '../../assets/images/logo_pds.png';
+import logo from '../../assets/images/logo_nasa.png';
  
 class BrowseView extends Component {
     componentDidMount() {

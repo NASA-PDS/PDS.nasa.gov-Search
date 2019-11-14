@@ -8,7 +8,7 @@ import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
 import Footer from './components/Footer/Footer';
 
-import logo from './assets/images/logo_pds.png';
+import logo from './assets/images/logo_nasa.png';
 
 class App extends Component {
   render() {
