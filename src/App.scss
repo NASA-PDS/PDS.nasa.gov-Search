@@ -1,3 +1,17 @@
+@import '../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+$blue: #72d0eb;
+$pink: #ffb3b3;
+$pink-invert: #fff;
+$family-serif: "Merriweather", "Georgia", serif;
+
+@import '../node_modules/bulma/sass/utilities/derived-variables.sass';
+$primary: $pink;
+$primary-invert: $pink-invert;
+$family-primary: $family-serif;
+
+@import '../node_modules/bulma/css/bulma.css';
+
 .App {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -70,10 +84,10 @@
   max-width: 60vh;
   border: none;
   padding: 5px;
+  border-radius: 4px 0 0 4px;
 }
 
 .searchButton{
-  padding: 0;
   border: none;
 }
 
@@ -177,7 +191,7 @@
   font-size: 1.1em;
 }
 
-.footer{
+.appFooter{
   background: black;
   padding: 5vh;
 }
