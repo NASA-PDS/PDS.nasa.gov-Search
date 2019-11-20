@@ -39,7 +39,6 @@ $family-primary: $family-serif;
   opacity: 1;
   color: #777;
   border-color: #a5a6a7;
-  height: 3vh;
   font-size: medium;
   font-weight: 600;
 }
@@ -70,6 +69,8 @@ $family-primary: $family-serif;
 
 .headerLogo{
   max-height: 7vh;
+  margin-top: auto;
+  margin-bottom: auto; 
 }
 
 .search{
