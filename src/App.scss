@@ -79,7 +79,6 @@ $family-primary: $family-serif;
 
 .searchInput{
   width: 80vh;
-  height: 4vh;
   font-size: xx-large;
   max-width: 60vh;
   border: none;
@@ -93,7 +92,6 @@ $family-primary: $family-serif;
 
 .searchBarFacets{
   display: flex;
-  justify-content: space-around;
 }
 
 .searchBarFacet{
@@ -101,8 +99,15 @@ $family-primary: $family-serif;
   width: 100%;
   height: 35px;
   color: white;
-  background: #4b6a8d url(http://localhost:9000/assets/images/arrows_select_box.png) no-repeat 94% 10px;
   font-weight: 600;
+  background: #4b6a8d;
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchBarFacet:hover{
+  color: #4b6a8d;
+  background: white;
 }
 
 .searchView{
