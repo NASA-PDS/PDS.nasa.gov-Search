@@ -14,9 +14,17 @@ class SearchView extends Component {
                 <DataTypeTabs></DataTypeTabs>
                 <ResultFilters></ResultFilters>
                 <div className="searchResultsContainer">
-                    <SearchFacets></SearchFacets>
-                    <SearchResults></SearchResults>
-                    <SearchContextResults></SearchContextResults>
+                    <div class="columns">
+                        <div class="column is-narrow">
+                            <SearchFacets></SearchFacets>
+                        </div>
+                        <div class="column">
+                            <SearchResults></SearchResults>
+                        </div>
+                        <div class="column is-narrow">
+                            <SearchContextResults></SearchContextResults>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

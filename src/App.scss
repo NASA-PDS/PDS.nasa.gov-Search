@@ -144,7 +144,7 @@ $family-primary: $family-serif;
 }
 
 .searchFacetGroup{
-  font-size: 1.71em;
+  /*font-size: 1.71em;*/
   border: 0.05em solid #BDBDBD;
   padding: 3vh 1vh 3vh 1vh;
   border: 1px solid #cacaca;
@@ -164,8 +164,8 @@ $family-primary: $family-serif;
 }
 
 .searchResultsContainer{
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  /*display: grid;
+  grid-template-columns: auto auto auto auto;*/
 }
 
 .searchResultTitle{
@@ -178,14 +178,12 @@ $family-primary: $family-serif;
 }
 
 .searchContextResults{
-  max-width: 30vh;
+  max-width: 40vh;
   padding-top: 1vh;
 }
 
 .searchContextResult{
-  padding: 3vh 1vh 3vh 1vh;
-  border: 1px solid #cacaca;
-  background: #efefef;
+  padding: 0vh 1vh 3vh 1vh;
 }
 
 .searchContextResultTitle{

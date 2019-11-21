@@ -46,9 +46,9 @@ class SearchBarFacet extends Component {
                     <div className="dropdown-menu" id="dropdown-menu2" role="menu">
                         <div className="dropdown-content">
                             <div className="dropdown-item">
-                                <div class="control has-icons-left has-icons-right">
-                                    <input class="input is-small" type="text" placeholder={this.props.title}/>
-                                    <span class="icon is-left">
+                                <div className="control has-icons-left has-icons-right">
+                                    <input className="input is-small" type="text" placeholder={this.props.title}/>
+                                    <span className="icon is-left">
                                         <FontAwesomeIcon icon={faSearch} />
                                     </span>
                                 </div>
