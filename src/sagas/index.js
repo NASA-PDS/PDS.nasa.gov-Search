@@ -2,11 +2,14 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 function* fetchSearchResults(action){
     console.log("fetch search results action", action);
-    const searchText = action.payload;
+    const searchText = action.payload.input;
+    const rows = action.payload.rows;
+    const start = action.payload.start;
 
     const endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Collection%20AND%20collection_type:Data%20AND%20text:(' + 
         searchText + 
-        ')&rows=12';
+        ')&rows=' + rows +
+        '&start=' + start;
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();

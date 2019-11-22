@@ -27,8 +27,10 @@ class SearchFacets extends Component {
         );
         
         return (
-            <div className="searchFacets">
-                {searchFacetGroups}
+            <div>
+                <div className="panel">
+                    {searchFacetGroups}
+                </div>
             </div>
         );
     }

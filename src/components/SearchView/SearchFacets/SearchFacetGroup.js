@@ -8,8 +8,8 @@ class SearchFacetGroup extends Component {
     render() {
         
         return (
-            <div className="searchFacetGroup">
-                <div className="searchFacetGroupTitle">{this.props.title}</div>
+            <div className="panel-block">
+                {this.props.title}
             </div>
         );
     }

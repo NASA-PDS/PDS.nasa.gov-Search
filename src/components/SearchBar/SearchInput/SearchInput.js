@@ -42,7 +42,11 @@ class SearchInput extends Component {
     dispatchChange = (state) => {
         this.props.dispatchSearchInput(state.input);
         this.props.dispatchIsSearching(state.isSearching);
-        this.props.dispatchGetSearchResults(state.input);
+        this.props.dispatchGetSearchResults({
+            input: state.input,
+            start: 0,
+            rows: this.props.appReducer.rows
+        });
         this.props.dispatchGetContextSearchResults(state.input);
     }
 

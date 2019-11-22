@@ -1,7 +1,9 @@
 const initialState = {
   searchInput: '',
   isSearching: false,
-  searchResults: []
+  searchResults: [],
+  rows: 15,
+  start: 0
 }
 
 export default (state = initialState, action) => {
@@ -18,7 +20,8 @@ export default (state = initialState, action) => {
     
     case 'RENDER_SEARCH_RESULTS':
       return Object.assign({}, state, {
-        searchResults: action.payload
+        searchResults: action.payload,
+        start: action.payload.response.start
       });
     
     case 'RENDER_CONTEXT_SEARCH_RESULTS':

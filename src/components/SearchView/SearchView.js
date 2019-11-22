@@ -4,6 +4,7 @@ import ResultFilters from './ResultFilters/ResultFilters';
 import SearchFacets from './SearchFacets/SearchFacets';
 import SearchResults from './SearchResults/SearchResults';
 import SearchContextResults from './SearchResults/SearchContextResults/SearchContextResults';
+import SearchPagination from './SearchPagination/SearchPagination';
 
 class SearchView extends Component {
     componentDidMount() {
@@ -14,18 +15,23 @@ class SearchView extends Component {
                 <DataTypeTabs></DataTypeTabs>
                 <ResultFilters></ResultFilters>
                 <div className="searchResultsContainer">
-                    <div class="columns">
-                        <div class="column is-narrow">
+                    <div className="columns">
+                        <div className="column is-narrow">
                             <SearchFacets></SearchFacets>
                         </div>
-                        <div class="column">
+                        <div className="column">
                             <SearchResults></SearchResults>
                         </div>
-                        <div class="column is-narrow">
+                        <div className="column is-narrow">
                             <SearchContextResults></SearchContextResults>
                         </div>
                     </div>
                 </div>
+
+                <div>
+                    <SearchPagination></SearchPagination>
+                </div>
+
             </div>
         );
     }
