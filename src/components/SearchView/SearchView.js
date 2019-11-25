@@ -16,9 +16,11 @@ class SearchView extends Component {
                 <ResultFilters></ResultFilters>
                 <div className="searchResultsContainer">
                     <div className="columns">
+                        {/*
                         <div className="column is-narrow">
                             <SearchFacets></SearchFacets>
                         </div>
+                        */}
                         <div className="column">
                             <SearchResults></SearchResults>
                         </div>

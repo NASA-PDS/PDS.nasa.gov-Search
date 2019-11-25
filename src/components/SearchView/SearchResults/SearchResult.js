@@ -9,8 +9,8 @@ class SearchResult extends Component {
         //console.log("SEARCH RESULT prop", this.props);
         return (
             <div className="searchResult">
-                <div className="searchResultTitle">{this.props.title}</div>
-                <div className="searchResultDescription">{this.props.description}</div>
+                <div className="title is-5">{this.props.title}</div>
+                <div className="subtitle is-6">{this.props.description}</div>
             </div>
         );
     }
