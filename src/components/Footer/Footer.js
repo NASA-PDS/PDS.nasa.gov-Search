@@ -6,7 +6,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className="appFooter footer">
+            <div className="appFooter has-background-dark">
                 <div className="footerLinks">
                     <div className="footerLink">
                         <a href="http://www.nasa.gov/" target="_blank">NASA</a>

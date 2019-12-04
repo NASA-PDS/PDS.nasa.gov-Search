@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SearchResult extends Component {
     componentDidMount() {
@@ -9,7 +10,9 @@ class SearchResult extends Component {
         //console.log("SEARCH RESULT prop", this.props);
         return (
             <div className="searchResult">
-                <div className="title is-5">{this.props.title}</div>
+                <Link to={`/details/${this.props.identifier}`}>
+                    <div className="title is-5">{this.props.title}</div>
+                </Link>
                 <div className="subtitle is-6">{this.props.description}</div>
             </div>
         );

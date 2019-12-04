@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class SearchContextResult extends Component {
     componentDidMount() {
@@ -21,7 +22,9 @@ class SearchContextResult extends Component {
                         <p className="subtitle is-6">{this.props.description}</p>
                     </div>
                     <footer className="card-footer">
-                        <a className="card-footer-item">More</a>
+                        <Link to={`/details/${this.props.identifier}`} className="card-footer-item">
+                            <span>More</span>
+                        </Link>
                         <a className="card-footer-item">Search</a>
                     </footer>
                 </div>

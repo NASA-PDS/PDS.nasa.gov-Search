@@ -159,7 +159,7 @@ $family-primary: $family-serif;
 }
 
 .searchResult{
-  padding: 1vh;
+  padding: 2vh;
 }
 
 .searchResultsContainer{
@@ -195,7 +195,6 @@ $family-primary: $family-serif;
 }
 
 .appFooter{
-  background: black;
   padding: 5vh;
 }
 
@@ -208,4 +207,12 @@ $family-primary: $family-serif;
   color: white;
   padding-left: 1vh;
   padding-right: 1vh;
+}
+
+.productDetail{
+  min-height: 100vh;
+}
+
+.contextDetail{
+  min-height: 100vh;
 }
