@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import SearchBarFacet from './SearchBarFacet';
+import SearchBarTargetFacet from './SearchBarTargetFacet';
+import SearchBarMissionFacet from './SearchBarMissionFacet';
+import SearchBarInstrumentFacet from './SearchBarInstrumentFacet';
  
 class SearchBarFacets extends Component {
     componentDidMount() {
@@ -7,9 +10,9 @@ class SearchBarFacets extends Component {
     render() {
         return (
             <div className="searchBarFacets">
-                <SearchBarFacet title="Target"></SearchBarFacet>
-                <SearchBarFacet title="Mission"></SearchBarFacet>
-                <SearchBarFacet title="Instrument"></SearchBarFacet>
+                <SearchBarTargetFacet></SearchBarTargetFacet>
+                <SearchBarMissionFacet></SearchBarMissionFacet>
+                <SearchBarInstrumentFacet title="Instrument"></SearchBarInstrumentFacet>
             </div>
         );
     }

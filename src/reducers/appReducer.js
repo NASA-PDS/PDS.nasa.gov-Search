@@ -3,7 +3,21 @@ const initialState = {
   isSearching: false,
   searchResults: [],
   rows: 15,
-  start: 0
+  start: 0,
+  searchFacets: {
+    target: {
+      results: [],
+      currentSelection: ''
+    },
+    mission: {
+      results: [],
+      currentSelection: ''
+    },
+    instrument: {
+      results: [],
+      currentSelection: ''
+    }
+  }
 }
 
 export default (state = initialState, action) => {
@@ -28,6 +42,33 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         searchContextResults: action.payload
       });
+
+    case 'RENDER_SEARCH_BAR_TARGET_FACET_RESULTS':
+      return Object.assign({}, state, {
+        searchFacets:{
+          target: {
+            results: action.payload
+          }
+        }
+      });
+
+    case 'RENDER_SEARCH_BAR_MISSION_FACET_RESULTS':
+      return Object.assign({}, state, {
+        searchFacets:{
+          mission: {
+            results: action.payload
+          }
+        }
+      });
+
+    case 'RENDER_SEARCH_BAR_INSTRUMENT_FACET_RESULTS':
+    return Object.assign({}, state, {
+      searchFacets:{
+        instrument: {
+          results: action.payload
+        }
+      }
+    });
     
     default:
       return state;
