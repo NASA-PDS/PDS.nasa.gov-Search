@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import LatestSection from './Sections/LatestSection';
+import ProductLevelSection from './Sections/ProductLevelSection';
+import MissionSection from './Sections/MissionSection';
+import PopularSection from './Sections/PopularSection';
+import TargetSection from './Sections/TargetSection';
+import InstrumentSection from './Sections/InstrumentSection';
 
-import logo from '../../assets/images/logo_nasa.png';
  
 class BrowseView extends Component {
     componentDidMount() {
@@ -9,10 +14,12 @@ class BrowseView extends Component {
     render() {
         return (
             <div>
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Browse View Goes Here</h1>
-                </header>
+                <LatestSection></LatestSection>
+                <ProductLevelSection></ProductLevelSection>
+                <MissionSection></MissionSection>
+                <PopularSection></PopularSection>
+                <TargetSection></TargetSection>
+                <InstrumentSection></InstrumentSection>
             </div>
         );
     }

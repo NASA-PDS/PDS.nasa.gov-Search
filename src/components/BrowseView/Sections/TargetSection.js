@@ -1,0 +1,34 @@
+import React, { Component } from 'react';
+import TargetDropDown from '../DropDowns/TargetDropDown';
+import ContextItem from '../ItemList/ContextItem';
+ 
+class TargetSection extends Component {
+    componentDidMount() {
+    }
+
+    render() {
+        const items = [1,2,3,4,5];
+        const targetItems = items.map((item, index) => 
+            <ContextItem key={index} {...item}></ContextItem>
+        );
+
+        return (
+            <div class="hero">
+                <div class="hero-body">
+                    <div class="container">
+                        <TargetDropDown></TargetDropDown>
+                        <div class="columns browsingList">
+                            {targetItems}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = (state) => ({
+    appReducer: state.appReducer
+})
+ 
+export default TargetSection;

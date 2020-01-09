@@ -216,3 +216,12 @@ $family-primary: $family-serif;
 .contextDetail{
   min-height: 100vh;
 }
+
+.browsingList{
+  margin-top: 1vh;
+}
+
+/*Bulma overrides*/
+.columns{
+  margin: 0;
+}
