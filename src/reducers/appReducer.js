@@ -17,6 +17,14 @@ const initialState = {
       results: [],
       currentSelection: ''
     }
+  },
+  browserView: {
+    instruments: [],
+    latest: [],
+    missions: [],
+    popular: [],
+    productLevelSearches: [],
+    targets: []
   }
 }
 
@@ -47,26 +55,62 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         searchFacets:{
           target: {
-            results: action.payload
-          }
+            results: action.payload,
+            currentSelection: state.searchFacets.target.currentSelection
+          },
+          mission: state.searchFacets.mission,
+          instrument: state.searchFacets.instrument
         }
       });
 
     case 'RENDER_SEARCH_BAR_MISSION_FACET_RESULTS':
       return Object.assign({}, state, {
         searchFacets:{
+          target: state.searchFacets.target,
           mission: {
-            results: action.payload
-          }
+            results: action.payload,
+            currentSelection: state.searchFacets.mission.currentSelection
+          },
+          instrument: state.searchFacets.instrument
         }
       });
 
     case 'RENDER_SEARCH_BAR_INSTRUMENT_FACET_RESULTS':
     return Object.assign({}, state, {
       searchFacets:{
+        target: state.searchFacets.target,
         instrument: {
-          results: action.payload
-        }
+          results: action.payload,
+          currentSelection: state.searchFacets.instrument.currentSelection
+        },
+        mission: state.searchFacets.mission
+      }
+    });
+
+    case 'RENDER_MISSION_SECTION_CONTENT':
+    return Object.assign({}, state, {
+      browserView:{
+        missions: action.payload,
+        targets: state.browserView.targets,
+        instruments: state.browserView.instruments
+      }
+    });
+
+    case 'RENDER_TARGET_SECTION_CONTENT':
+    return Object.assign({}, state, {
+      browserView:{
+        targets: action.payload,
+        missions: state.browserView.missions,
+        instruments: state.browserView.instruments
+      }
+    });
+
+    case 'RENDER_INSTRUMENT_SECTION_CONTENT':
+    return Object.assign({}, state, {
+      browserView:{
+        instruments: action.payload,
+        missions: state.browserView.missions,
+        targets: state.browserView.targets
       }
     });
     

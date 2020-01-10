@@ -30,20 +30,41 @@ export const getSearchBarTargetFacetResults = (payload) => dispatch => {
     dispatch({
         type: 'LOAD_SEARCH_BAR_TARGET_FACET_RESULTS',
         payload
-    })
+    });
 }
 
 export const getSearchBarMissionFacetResults = (payload) => dispatch => {
     dispatch({
         type: 'LOAD_SEARCH_BAR_MISSION_FACET_RESULTS',
         payload
-    })
+    });
 }
 
 export const getSearchBarInstrumentFacetResults = (payload) => dispatch => {
     dispatch({
         type: 'LOAD_SEARCH_BAR_INSTRUMENT_FACET_RESULTS',
         payload
-    })
+    });
+}
+
+export const getMissionsSectionContent = (payload) => dispatch => {
+    dispatch({
+        type: 'LOAD_MISSION_SECTION_CONTENT',
+        payload
+    });
+}
+
+export const getTargetsSectionContent = (payload) => dispatch => {
+    dispatch({
+        type: 'LOAD_TARGET_SECTION_CONTENT',
+        payload
+    });
+}
+
+export const getInstrumentsSectionContent = (payload) => dispatch => {
+    dispatch({
+        type: 'LOAD_INSTRUMENT_SECTION_CONTENT',
+        payload
+    });
 }
 

@@ -53,7 +53,6 @@ class SearchBarMissionFacet extends Component {
             isActiveClass = "dropdown is-active"
         }
 
-        console.log("mission facet app reducer", this.props.appReducer);
         let docs = [];
         if(this.props.appReducer.searchFacets &&
             this.props.appReducer.searchFacets.mission &&

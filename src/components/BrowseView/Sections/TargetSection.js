@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { 
+    getTargetsSectionContent
+} from '../../../actions/appAction';
 import TargetDropDown from '../DropDowns/TargetDropDown';
 import ContextItem from '../ItemList/ContextItem';
  
 class TargetSection extends Component {
     componentDidMount() {
+        this.props.dispatchGetTargetSectionContent(this.state)
     }
 
     render() {
-        const items = [1,2,3,4,5];
+        let items = [];
+        if(this.props.appReducer.browserView &&
+            this.props.appReducer.browserView.targets &&
+            this.props.appReducer.browserView.targets.response &&
+            this.props.appReducer.browserView.targets.response.docs){
+                items = this.props.appReducer.browserView.targets.response.docs;
+        }
+
         const targetItems = items.map((item, index) => 
             <ContextItem key={index} {...item}></ContextItem>
         );
@@ -27,8 +39,12 @@ class TargetSection extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    appReducer: state.appReducer
-})
- 
-export default TargetSection;
+const mapStateToProps = state => ({
+    ...state
+});
+
+const mapDispatchToProps = dispatch => ({
+    dispatchGetTargetSectionContent: (input) => dispatch(getTargetsSectionContent(input))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TargetSection);

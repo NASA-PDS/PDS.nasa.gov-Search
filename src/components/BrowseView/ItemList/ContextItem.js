@@ -5,6 +5,17 @@ class ContextItem extends Component {
     }
 
     render() {
+        let title = this.props.title;
+
+
+        let description = this.props.description;
+        if(description){
+            description = description[0];
+        }
+        if(description && description.length > 50){
+            description = description.substr(0, 200-1) + '...';
+        }
+
         return (
             <div className="column">
                 
@@ -15,8 +26,8 @@ class ContextItem extends Component {
                         </figure>
                     </div>
                     <div className="card-content">
-                        <p className="title is-4">Context</p>
-                        <p className="subtitle is-6">{this.props.description}</p>
+                        <p className="title is-4">{title}</p>
+                        <p className="subtitle is-6">{description}</p>
                     </div>
                     <footer className="card-footer">
                         <a className="card-footer-item">More</a>

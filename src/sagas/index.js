@@ -114,6 +114,53 @@ function* getSearchBarInstrumentFacetResults(){
     yield takeLatest('LOAD_SEARCH_BAR_INSTRUMENT_FACET_RESULTS', fetchSearchBarInstrumentFacetResults)
 }
 
+function* fetchMissionSectionContent(action){
+    console.log("fetch missions section action", action);
+    const rows = 5;
+
+    let endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Mission_PDS3&rows=' + rows;
+
+    const response = yield call(fetch, endpoint);
+    const data = yield response.json();
+    console.log("Missions section DATA", data);
+    yield put({ type: 'RENDER_MISSION_SECTION_CONTENT', payload: data});
+}
+
+function* getMissionsSectionContent(){
+    yield takeLatest('LOAD_MISSION_SECTION_CONTENT', fetchMissionSectionContent)
+}
+
+function* fetchTargetSectionContent(action){
+    console.log("fetch targets section action", action);
+    const rows = 5;
+
+    let endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Target_PDS3&rows=' + rows;
+
+    const response = yield call(fetch, endpoint);
+    const data = yield response.json();
+    console.log("Targets section DATA", data);
+    yield put({ type: 'RENDER_TARGET_SECTION_CONTENT', payload: data});
+}
+
+function* getTargetsSectionContent(){
+    yield takeLatest('LOAD_TARGET_SECTION_CONTENT', fetchTargetSectionContent)
+}
+
+function* fetchInstrumentSectionContent(action){
+    console.log("fetch instruments section action", action);
+    const rows = 5;
+
+    let endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Instrument_PDS3&rows=' + rows;
+
+    const response = yield call(fetch, endpoint);
+    const data = yield response.json();
+    console.log("Instrument section DATA", data);
+    yield put({ type: 'RENDER_INSTRUMENT_SECTION_CONTENT', payload: data});
+}
+
+function* getInstrumentsSectionContent(){
+    yield takeLatest('LOAD_INSTRUMENT_SECTION_CONTENT', fetchInstrumentSectionContent)
+}
 
 export default function* rootSaga(){
     yield all([
@@ -121,7 +168,10 @@ export default function* rootSaga(){
         getContextSearchResults(),
         getSearchBarTargetFacetResults(),
         getSearchBarMissionFacetResults(),
-        getSearchBarInstrumentFacetResults()
+        getSearchBarInstrumentFacetResults(),
+        getMissionsSectionContent(),
+        getTargetsSectionContent(),
+        getInstrumentsSectionContent()
     ]);
 }
 

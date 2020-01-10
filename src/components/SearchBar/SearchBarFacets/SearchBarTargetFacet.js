@@ -52,8 +52,7 @@ class SearchBarTargetFacet extends Component {
         if(this.state.isOpen){
             isActiveClass = "dropdown is-active"
         }
-
-        console.log("target facet app reducer", this.props.appReducer);
+        
         let docs = [];
         if(this.props.appReducer.searchFacets &&
             this.props.appReducer.searchFacets.target &&

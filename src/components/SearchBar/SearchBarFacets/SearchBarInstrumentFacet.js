@@ -53,7 +53,6 @@ class SearchBarInstrumentFacet extends Component {
             isActiveClass = "dropdown is-active"
         }
 
-        console.log("instrument facet app reducer", this.props.appReducer);
         let docs = [];
         if(this.props.appReducer.searchFacets &&
             this.props.appReducer.searchFacets.instrument &&
