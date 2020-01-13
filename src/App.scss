@@ -221,6 +221,22 @@ $family-primary: $family-serif;
   margin-top: 1vh;
 }
 
+.productLevelSuggestionSection{
+  display: flex;
+  justify-content: start;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.productLevelCard{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.productLevelSuggestionSection .card-content{
+  padding: 0.5rem;
+}
+
 /*Bulma overrides*/
 .columns{
   margin: 0;
