@@ -25,7 +25,7 @@ class SearchInput extends Component {
             input: e.target.value,
             isSearching: true
         }, () => {
-            this.dispatchChange(this.state)
+            //this.dispatchChange(this.state)
         });
     }
 
@@ -37,6 +37,16 @@ class SearchInput extends Component {
         }, () => {
             this.dispatchChange(this.state)
         });
+    }
+
+    handleKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            this.setState({
+                isSearching: true
+            }, () => {
+                this.dispatchChange(this.state)
+            });
+        }   
     }
 
     dispatchChange = (state) => {
@@ -58,6 +68,7 @@ class SearchInput extends Component {
                     type="text"
                     placeholder="Search"
                     onChange={this.handleInputChange}
+                    onKeyPress={this.handleKeyPress}
                 />
                 <button 
                     className="searchButton"
