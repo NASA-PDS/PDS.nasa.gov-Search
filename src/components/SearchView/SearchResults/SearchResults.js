@@ -15,9 +15,13 @@ class SearchResults extends Component {
                 docs = this.props.appReducer.searchResults.response.docs;
         }
 
-        const searchResults = docs.map((doc, index) => 
+        let searchResults = docs.map((doc, index) => 
             <SearchResult key={index} {...doc}></SearchResult>
         );
+
+        if(docs.length < 1){
+            searchResults = <div className="noResultsMessage">No Results Found.</div>
+        }
         
         return (
             <div className="searchResults">
