@@ -76,7 +76,7 @@ class SearchBarInstrumentFacet extends Component {
             <div >
                 <div className={isActiveClass}>
                     <div className="dropdown-trigger" onClick={this.openClicked}>
-                        <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                        <button className="button searchBarFacetButton" aria-haspopup="true" aria-controls="dropdown-menu2">
                         <span>Instrument</span>:
                         <span>{this.state.selection}</span>
                         <span className="icon is-small">

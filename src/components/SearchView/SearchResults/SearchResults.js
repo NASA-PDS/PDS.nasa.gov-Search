@@ -16,7 +16,7 @@ class SearchResults extends Component {
         }
 
         let searchResults = docs.map((doc, index) => 
-            <SearchResult key={index} {...doc}></SearchResult>
+            <SearchResult key={index} {...doc} index={index}></SearchResult>
         );
 
         if(docs.length < 1){

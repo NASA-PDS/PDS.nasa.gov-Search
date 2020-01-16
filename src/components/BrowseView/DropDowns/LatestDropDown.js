@@ -32,7 +32,7 @@ class LatestDropDown extends Component {
             <div class="has-text-centered browsing-drop-down">
                 <div className={isActiveClass}>
                     <div className="dropdown-trigger" onClick={this.openClicked}>
-                        <button className="button" aria-haspopup="true" aria-controls="dropdown-menu2">
+                        <button className="button sectionDropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">
                         <span>Latest Data</span>
                         <span className="icon is-small">
                             <FontAwesomeIcon icon={faCaretDown} />
