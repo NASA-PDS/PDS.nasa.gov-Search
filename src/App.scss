@@ -265,6 +265,18 @@ $family-primary: $family-serif;
   background: #024378;
 }
 
+.card.contextCard{
+  height: 100%;
+}
+
+.card.dataCard{
+  height: 100%;
+}
+
+.productLevelCard .image{
+  height: 9vh;
+}
+
 /*Bulma overrides*/
 .columns{
   margin: 0;

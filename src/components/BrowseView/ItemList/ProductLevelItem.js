@@ -18,9 +18,6 @@ class DataItem extends Component {
                         <p className="title is-4">Product Level</p>
                         <p className="subtitle is-6">{this.props.description}</p>
                     </div>
-                    <footer className="card-footer">
-                        <a className="card-footer-item">View</a>
-                    </footer>
                 </div>
 
             </div>
