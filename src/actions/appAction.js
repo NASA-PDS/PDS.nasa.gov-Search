@@ -19,6 +19,13 @@ export const getSearchResults = (payload) => dispatch => {
     });
 }
 
+export const getDocumentSearchResults = (payload) => dispatch => {
+    dispatch({
+        type: 'LOAD_DOCUMENT_SEARCH_RESULTS',
+        payload
+    });
+}
+
 export const getContextSearchResults = (payload) => dispatch => {
     dispatch({
         type: 'LOAD_CONTEXT_SEARCH_RESULTS',

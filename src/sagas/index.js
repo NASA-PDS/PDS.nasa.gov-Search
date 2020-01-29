@@ -6,7 +6,7 @@ function* fetchSearchResults(action){
     const rows = action.payload.rows;
     const start = action.payload.start;
     
-    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/docs?q=' + 
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/data?q=' + 
         searchText +
         '&rows=' + rows +
         '&start=' + start;
@@ -19,6 +19,27 @@ function* fetchSearchResults(action){
 
 function* getSearchResults(){
     yield takeLatest('LOAD_SEARCH_RESULTS', fetchSearchResults);
+}
+
+function* fetchDocumentSearchResults(action){
+    console.log("fetch search results action", action);
+    const searchText = action.payload.input;
+    const rows = action.payload.rows;
+    const start = action.payload.start;
+    
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/docs?q=' + 
+        searchText +
+        '&rows=' + rows +
+        '&start=' + start;
+
+    const response = yield call(fetch, endpoint);
+    const data = yield response.json();
+    console.log("DATA", data);
+    yield put({ type: 'RENDER_SEARCH_RESULTS', payload: data});
+}
+
+function* getDocumentSearchResults(){
+    yield takeLatest('LOAD_DOCUMENT_SEARCH_RESULTS', fetchDocumentSearchResults);
 }
 
 function* fetchContextSearchResults(action){
@@ -171,7 +192,8 @@ export default function* rootSaga(){
         getSearchBarInstrumentFacetResults(),
         getMissionsSectionContent(),
         getTargetsSectionContent(),
-        getInstrumentsSectionContent()
+        getInstrumentsSectionContent(),
+        getDocumentSearchResults()
     ]);
 }
 
