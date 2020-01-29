@@ -5,10 +5,10 @@ function* fetchSearchResults(action){
     const searchText = action.payload.input;
     const rows = action.payload.rows;
     const start = action.payload.start;
-
-    const endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=objectType:Product_Collection%20AND%20collection_type:Data%20AND%20text:(' + 
+    
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/docs?q=' + 
         searchText +
-        ')&rows=' + rows +
+        '&rows=' + rows +
         '&start=' + start;
 
     const response = yield call(fetch, endpoint);

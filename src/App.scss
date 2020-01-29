@@ -277,6 +277,13 @@ $family-primary: $family-serif;
   height: 9vh;
 }
 
+.resultLink{
+  color: #3273dc;
+}
+.resultLink:hover{
+  color: black;
+}
+
 /*Bulma overrides*/
 .columns{
   margin: 0;
