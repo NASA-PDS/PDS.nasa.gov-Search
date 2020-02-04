@@ -22,9 +22,9 @@ class SearchContextResult extends Component {
                         <p className="subtitle is-6">{this.props.description}</p>
                     </div>
                     <footer className="card-footer">
-                        <Link to={`/details/${this.props.identifier}`} className="card-footer-item">
+                        <a href={`https://sbnarchivedemo.psi.edu/?dataset=${this.props.lid}`} target="_blank" className="card-footer-item">
                             <span>More</span>
-                        </Link>
+                        </a>
                         <a className="card-footer-item">Search</a>
                     </footer>
                 </div>

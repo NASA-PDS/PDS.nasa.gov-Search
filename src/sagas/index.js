@@ -46,9 +46,10 @@ function* fetchContextSearchResults(action){
     console.log("fetch context search results action", action);
     const searchText = action.payload;
 
-    const endpoint = 'https://pds.nasa.gov/services/search/search?wt=json&q=product_class:Product_Context%20ANDtext(' + 
+    
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/ctx?q=' + 
         searchText +
-        ')&rows=3';
+        '&rows=3';
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();
