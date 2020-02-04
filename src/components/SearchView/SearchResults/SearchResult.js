@@ -15,9 +15,9 @@ class SearchResult extends Component {
 
         return (
             <div className={searchResultClass}>
-                <Link to={`/details/${this.props.identifier}`}>
+               <a href={`https://sbnarchivedemo.psi.edu/?dataset=${this.props.lid}`} target="_blank">
                     <div className="title is-5 resultLink">{this.props.title}</div>
-                </Link>
+                </a>
                 <div className="subtitle is-6">{this.props.description}</div>
             </div>
         );
