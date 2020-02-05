@@ -35,7 +35,7 @@ class SearchView extends Component {
                 </div>
 
                 <div>
-                    <SearchPagination></SearchPagination>
+                    {/*<SearchPagination></SearchPagination>*/}
                 </div>
 
             </div>

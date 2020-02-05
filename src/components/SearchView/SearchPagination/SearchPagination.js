@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { 
-    getSearchResults
+    getDataSearchResults
 } from '../../../actions/appAction';
  
 class SearchInput extends Component {
@@ -13,7 +13,7 @@ class SearchInput extends Component {
 
         let newStart = (e.currentTarget.getAttribute('data-value')  - 1) * this.props.appReducer.rows;
         
-        this.props.dispatchGetSearchResults({
+        this.props.dispatchGetDataSearchResults({
             input: this.props.appReducer.searchInput, 
             start: newStart,
             rows: this.props.appReducer.rows
@@ -218,8 +218,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input))
+    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
 });
  
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  
-//export default connect(mapStateToProps, null)(SearchInput);  
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

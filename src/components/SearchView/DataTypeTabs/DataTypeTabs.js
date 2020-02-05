@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import DataTypeTab from './DataTypeTab';
  
 class DataTypeTabs extends Component {
@@ -7,12 +8,34 @@ class DataTypeTabs extends Component {
     render() {
         return (
             <div className="dataTypeTabs">
-                <DataTypeTab title="Data"></DataTypeTab>
-                <DataTypeTab title="Documentation"></DataTypeTab>
-                <DataTypeTab title="Node Search Engines"></DataTypeTab>
+                <DataTypeTab
+                    title="Data"
+                    isActive={
+                        this.props.appReducer.dataType === 'data'
+                    }
+                >
+                </DataTypeTab>
+                <DataTypeTab
+                    title="Documentation"
+                    isActive={
+                        this.props.appReducer.dataType === 'documentation'
+                    }
+                >
+                </DataTypeTab>
+                <DataTypeTab
+                    title="Node Search Engines"
+                    isActive={
+                        this.props.appReducer.dataType === 'nodes'
+                    }
+                >
+                </DataTypeTab>
             </div>
         );
     }
 }
  
-export default DataTypeTabs;
+const mapStateToProps = state => ({
+    ...state
+});
+ 
+export default connect(mapStateToProps, null)(DataTypeTabs);  

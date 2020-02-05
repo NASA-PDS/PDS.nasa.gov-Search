@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { 
-    updateSearchInput, 
-    updateIsSearching,
-    getSearchResults,
-    getContextSearchResults
+    setSearchInput, 
+    setIsSearching,
+    getDataSearchResults,
+    getContextSearchResults,
+    getDocumentSearchResults
 } from '../../../actions/appAction';
 
 import searchIcon from '../../../assets/images/search_icon_darkgrey@2x.png';
@@ -22,10 +23,9 @@ class SearchInput extends Component {
         e.preventDefault();
 
         this.setState({
-            input: e.target.value,
-            isSearching: true
+            input: e.target.value
         }, () => {
-            //this.dispatchChange(this.state)
+            this.props.dispatchSetSearchInput(this.state.input);
         });
     }
 
@@ -35,7 +35,7 @@ class SearchInput extends Component {
         this.setState({
             isSearching: true
         }, () => {
-            this.dispatchChange(this.state)
+            this.doSearch()
         });
     }
 
@@ -44,20 +44,28 @@ class SearchInput extends Component {
             this.setState({
                 isSearching: true
             }, () => {
-                this.dispatchChange(this.state)
+                this.doSearch();
             });
         }   
     }
 
-    dispatchChange = (state) => {
-        this.props.dispatchSearchInput(state.input);
-        this.props.dispatchIsSearching(state.isSearching);
-        this.props.dispatchGetSearchResults({
-            input: state.input,
-            start: 0,
+    doSearch = () => {
+        this.props.dispatchSetIsSearching(this.state.isSearching);
+
+        let values = {
+            input: this.props.appReducer.searchInput,
+            start: this.props.appReducer.start,
             rows: this.props.appReducer.rows
-        });
-        this.props.dispatchGetContextSearchResults(state.input);
+        }
+
+        if(this.props.appReducer.dataType === "data"){
+            this.props.dispatchGetDataSearchResults(values);
+        }
+        else if(this.props.appReducer.dataType === "documentation"){
+            this.props.dispatchGetDocumentSearchResults(values);
+        }
+
+        this.props.dispatchGetContextSearchResults(this.props.appReducer.searchInput);
     }
 
     render() {
@@ -87,10 +95,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchSearchInput: (input) => dispatch(updateSearchInput(input)),
-    dispatchIsSearching: (isSearching) => dispatch(updateIsSearching(isSearching)),
-    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input)),
-    dispatchGetContextSearchResults: (input) => dispatch(getContextSearchResults(input))
+    dispatchSetSearchInput: (input) => dispatch(setSearchInput(input)),
+    dispatchSetIsSearching: (isSearching) => dispatch(setIsSearching(isSearching)),
+    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input)),
+    dispatchGetContextSearchResults: (input) => dispatch(getContextSearchResults(input)),
+    dispatchGetDocumentSearchResults: (input) => dispatch(getDocumentSearchResults(input)),
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  

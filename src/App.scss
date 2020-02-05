@@ -284,6 +284,11 @@ $family-primary: $family-serif;
   color: black;
 }
 
+.button.dataTabButton.dataTypeTabActive{
+  background-color: #3273dc;
+  color: white;
+}
+
 /*Bulma overrides*/
 .columns{
   margin: 0;

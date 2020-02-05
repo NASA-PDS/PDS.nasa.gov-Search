@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { 
     getDocumentSearchResults,
-    getSearchResults
+    getDataSearchResults,
+    setDataType
 } from '../../../actions/appAction';
  
 class DataTypeTab extends Component {
@@ -18,19 +19,26 @@ class DataTypeTab extends Component {
         }
 
         if(this.props.title === "Data"){
-            this.props.dispatchGetSearchResults(state);
+            this.props.dispatchSetDataType("data");
+            this.props.dispatchGetDataSearchResults(state);
         }
         if(this.props.title === "Documentation"){
+            this.props.dispatchSetDataType("documentation");
             this.props.dispatchGetDocumentSearchResults(state);
         }
         
     }
 
     render() {
+        let dataTypeTabClass = "button dark dataTabButton";
+        if(this.props.isActive){
+            dataTypeTabClass = "button dark dataTabButton dataTypeTabActive"
+        }
+        
         return (
             <div>
                 <button 
-                    className="button dark dataTabButton"
+                    className={dataTypeTabClass}
                     onClick={this.handleButtonClick}
                 >
                     {this.props.title}
@@ -45,8 +53,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    dispatchSetDataType: (input) => dispatch(setDataType(input)),
     dispatchGetDocumentSearchResults: (input) => dispatch(getDocumentSearchResults(input)),
-    dispatchGetSearchResults: (input) => dispatch(getSearchResults(input))
+    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(DataTypeTab);  

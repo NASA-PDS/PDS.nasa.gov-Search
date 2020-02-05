@@ -9,7 +9,7 @@ class SearchBar extends Component {
         return (
             <div className="searchBar">
                 <SearchInput></SearchInput>
-                <SearchBarFacets></SearchBarFacets>
+                {/*<SearchBarFacets></SearchBarFacets>*/}
             </div>
         );
     }

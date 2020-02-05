@@ -1,27 +1,34 @@
-export const updateSearchInput = (payload) => dispatch => {
+export const setSearchInput = (payload) => dispatch => {
     dispatch({
-     type: 'UPDATE_SEARCH_INPUT',
+     type: 'SET_SEARCH_INPUT',
      payload
     });
 }
 
-export const updateIsSearching = (payload) => dispatch => {
+export const setIsSearching = (payload) => dispatch => {
     dispatch({
-     type: 'UPDATE_IS_SEARCHING',
+     type: 'SET_IS_SEARCHING',
      payload
     });
 }
 
-export const getSearchResults = (payload) => dispatch => {
+export const setDataType = (payload) => dispatch => {
     dispatch({
-        type: 'LOAD_SEARCH_RESULTS',
+     type: 'SET_DATA_TYPE',
+     payload
+    });
+}
+
+export const getDataSearchResults = (payload) => dispatch => {
+    dispatch({
+        type: 'GET_DATA_SEARCH_RESULTS',
         payload
     });
 }
 
 export const getDocumentSearchResults = (payload) => dispatch => {
     dispatch({
-        type: 'LOAD_DOCUMENT_SEARCH_RESULTS',
+        type: 'GET_DOCUMENT_SEARCH_RESULTS',
         payload
     });
 }

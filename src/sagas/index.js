@@ -14,11 +14,12 @@ function* fetchSearchResults(action){
     const response = yield call(fetch, endpoint);
     const data = yield response.json();
     console.log("DATA", data);
+
     yield put({ type: 'RENDER_SEARCH_RESULTS', payload: data});
 }
 
-function* getSearchResults(){
-    yield takeLatest('LOAD_SEARCH_RESULTS', fetchSearchResults);
+function* getDataSearchResults(){
+    yield takeLatest('GET_DATA_SEARCH_RESULTS', fetchSearchResults);
 }
 
 function* fetchDocumentSearchResults(action){
@@ -39,7 +40,7 @@ function* fetchDocumentSearchResults(action){
 }
 
 function* getDocumentSearchResults(){
-    yield takeLatest('LOAD_DOCUMENT_SEARCH_RESULTS', fetchDocumentSearchResults);
+    yield takeLatest('GET_DOCUMENT_SEARCH_RESULTS', fetchDocumentSearchResults);
 }
 
 function* fetchContextSearchResults(action){
@@ -186,7 +187,7 @@ function* getInstrumentsSectionContent(){
 
 export default function* rootSaga(){
     yield all([
-        getSearchResults(),
+        getDataSearchResults(),
         getContextSearchResults(),
         getSearchBarTargetFacetResults(),
         getSearchBarMissionFacetResults(),
