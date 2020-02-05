@@ -25,11 +25,11 @@ class MissionSection extends Component {
         );
 
         return (
-            <div class="hero">
-                <div class="hero-body">
-                    <div class="container">
+            <div className="hero">
+                <div className="hero-body">
+                    <div className="container">
                         <MissionDropDown></MissionDropDown>
-                        <div class="columns browsingList">
+                        <div className="columns browsingList">
                             {missionItems}
                         </div>
                     </div>

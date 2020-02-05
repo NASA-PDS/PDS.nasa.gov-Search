@@ -13,11 +13,11 @@ class PopularSection extends Component {
         );
 
         return (
-            <div class="hero">
-                <div class="hero-body">
-                    <div class="container">
+            <div className="hero">
+                <div className="hero-body">
+                    <div className="container">
                         <PopularDropDown></PopularDropDown>
-                        <div class="columns browsingList">
+                        <div className="columns browsingList">
                             {popularItems}
                         </div>
                     </div>

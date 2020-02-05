@@ -26,7 +26,7 @@ class ProductLevelSuggestions extends Component {
         return (
             <div>
                 Continue Search In:
-                <div class="productLevelSuggestionSection">
+                <div className="productLevelSuggestionSection">
                     {productLevelSearches}
                 </div>
             </div>

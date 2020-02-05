@@ -9,16 +9,16 @@ class Footer extends Component {
             <div className="appFooter has-background-dark">
                 <div className="footerLinks">
                     <div className="footerLink">
-                        <a href="http://www.nasa.gov/" target="_blank">NASA</a>
+                        <a href="http://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>
                     </div>
                     <div className="footerLink">
-                        <a href="http://www.caltech.edu/" target="_blank">Caltech</a>
+                        <a href="http://www.caltech.edu/" target="_blank" rel="noopener noreferrer">Caltech</a>
                     </div>
                     <div className="footerLink">
-                        <a href="/copyrights.php" target="_blank">Privacy</a>
+                        <a href="/copyrights.php" target="_blank" rel="noopener noreferrer">Privacy</a>
                     </div>
                     <div className="footerLink">
-                        <a href="/copyrights.php" target="_blank">Privacy</a>
+                        <a href="/copyrights.php" target="_blank" rel="noopener noreferrer">Privacy</a>
                     </div>
                     <div className="footerLink">
                         <a href="/imagepolicy">Image Policy</a>

@@ -13,11 +13,11 @@ class LatestSection extends Component {
         );
 
         return (
-            <div class="hero">
-                <div class="hero-body">
-                    <div class="container">
+            <div className="hero">
+                <div className="hero-body">
+                    <div className="container">
                         <LatestDropDown></LatestDropDown>
-                        <div class="columns browsingList">
+                        <div className="columns browsingList">
                             {latestItems}
                         </div>
                     </div>

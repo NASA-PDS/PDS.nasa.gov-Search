@@ -25,11 +25,11 @@ class InstrumentSection extends Component {
         );
 
         return (
-            <div class="hero">
-                <div class="hero-body">
-                    <div class="container">
+            <div className="hero">
+                <div className="hero-body">
+                    <div className="container">
                         <InstrumentDropDown></InstrumentDropDown>
-                        <div class="columns browsingList">
+                        <div className="columns browsingList">
                             {instrumentItems}
                         </div>
                     </div>

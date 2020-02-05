@@ -17,30 +17,22 @@ class App extends Component {
     const {appReducer} = this.props;
 
     return (
-      <Switch>
-
-        <Route exact path="/">
-          <div className="App">
-            <div className="header">
-              <img src={logo} 
-                className="headerLogo"
-                alt=""
-              />
-              <div className="headerTitle">
-                Planetary Data System
-              </div>
-              <SearchBar></SearchBar>
-            </div>
-
-            {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
-
-            <Footer></Footer>
+      <div className="App">
+        <div className="header">
+          <img src={logo} 
+            className="headerLogo"
+            alt=""
+          />
+          <div className="headerTitle">
+            Planetary Data System
           </div>
-        </Route>
+          <SearchBar></SearchBar>
+        </div>
 
-        <Route path="/details/:identifier" component={DetailView} />
+        {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
 
-      </Switch>
+        <Footer></Footer>
+      </div>
     );
   }
 }

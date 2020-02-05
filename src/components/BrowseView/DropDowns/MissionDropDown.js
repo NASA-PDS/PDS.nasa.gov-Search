@@ -29,7 +29,7 @@ class MissionDropDown extends Component {
         }
 
         return (
-            <div class="has-text-centered browsing-drop-down">
+            <div className="has-text-centered browsing-drop-down">
                 <div className={isActiveClass}>
                     <div className="dropdown-trigger" onClick={this.openClicked}>
                         <button className="button sectionDropDownButton" aria-haspopup="true" aria-controls="dropdown-menu2">

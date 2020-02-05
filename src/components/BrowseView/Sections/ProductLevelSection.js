@@ -13,11 +13,11 @@ class ProductLevelSection extends Component {
         );
 
         return (
-            <div class="hero">
-                <div class="hero-body">
-                    <div class="container">
+            <div className="hero">
+                <div className="hero-body">
+                    <div className="container">
                         <ProductLevelDropDown></ProductLevelDropDown>
-                        <div class="columns browsingList">
+                        <div className="columns browsingList">
                             {productLevelItems}
                         </div>
                     </div>
