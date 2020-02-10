@@ -13,6 +13,7 @@ class DataTypeTabs extends Component {
                     isActive={
                         this.props.appReducer.dataType === 'data'
                     }
+                    isLeftmost={true}
                 >
                 </DataTypeTab>
                 <DataTypeTab
@@ -27,6 +28,7 @@ class DataTypeTabs extends Component {
                     isActive={
                         this.props.appReducer.dataType === 'nodes'
                     }
+                    isRightmost={true}
                 >
                 </DataTypeTab>
             </div>

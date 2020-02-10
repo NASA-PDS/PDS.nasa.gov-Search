@@ -28,7 +28,7 @@ function* fetchDocumentSearchResults(action){
     const rows = action.payload.rows;
     const start = action.payload.start;
     
-    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/docs?q=' + 
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/document?q=' + 
         searchText +
         '&rows=' + rows +
         '&start=' + start;
@@ -48,7 +48,7 @@ function* fetchContextSearchResults(action){
     const searchText = action.payload;
 
     
-    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/ctx?q=' + 
+    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/context?q=' + 
         searchText +
         '&rows=3';
 

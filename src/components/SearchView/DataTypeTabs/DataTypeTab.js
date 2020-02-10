@@ -32,7 +32,13 @@ class DataTypeTab extends Component {
     render() {
         let dataTypeTabClass = "button dark dataTabButton";
         if(this.props.isActive){
-            dataTypeTabClass = "button dark dataTabButton dataTypeTabActive"
+            dataTypeTabClass = dataTypeTabClass + " dataTypeTabActive";
+        }
+        if(this.props.isLeftmost){
+            dataTypeTabClass = dataTypeTabClass + " leftmostTypeTab";
+        }
+        if(this.props.isRightmost){
+            dataTypeTabClass = dataTypeTabClass + " rightmostTypeTab";
         }
         
         return (

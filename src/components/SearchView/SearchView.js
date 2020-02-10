@@ -28,14 +28,14 @@ class SearchView extends Component {
                         <div className="column">
                             <SearchResults></SearchResults>
                         </div>
-                        <div className="column is-narrow">
+                        <div className="column">
                             <SearchContextResults></SearchContextResults>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    {/*<SearchPagination></SearchPagination>*/}
+                    {<SearchPagination></SearchPagination>}
                 </div>
 
             </div>
