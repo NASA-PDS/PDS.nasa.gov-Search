@@ -231,7 +231,7 @@ $family-primary: $family-serif;
   display: flex;
   justify-content: start;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .productLevelCard{
@@ -302,6 +302,10 @@ $family-primary: $family-serif;
 .button.dataTabButton.dataTypeTabActive{
   background-color: #3273dc;
   color: white;
+}
+
+.fullHeight{
+  height: 100vh;
 }
 
 *:focus {

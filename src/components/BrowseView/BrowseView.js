@@ -13,13 +13,15 @@ class BrowseView extends Component {
 
     render() {
         return (
-            <div>
+            <div className="fullHeight">
+                {/*
                 <LatestSection></LatestSection>
                 <ProductLevelSection></ProductLevelSection>
                 <MissionSection></MissionSection>
                 <PopularSection></PopularSection>
                 <TargetSection></TargetSection>
                 <InstrumentSection></InstrumentSection>
+                */}
             </div>
         );
     }

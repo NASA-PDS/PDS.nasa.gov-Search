@@ -7,7 +7,6 @@ import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
 import Footer from './components/Footer/Footer';
-import DetailView from './components/DetailView/DetailView';
 
 import logo from './assets/images/logo_nasa.png';
 import { Route, Switch } from 'react-router-dom'

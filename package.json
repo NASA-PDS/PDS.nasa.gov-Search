@@ -1,6 +1,7 @@
 {
   "name": "search-ui",
   "version": "0.1.0",
+  "homepage": "https://pds-dev2.jpl.nasa.gov/searchui/demo/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
