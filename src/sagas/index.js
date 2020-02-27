@@ -6,10 +6,21 @@ function* fetchSearchResults(action){
     const rows = action.payload.rows;
     const start = action.payload.start;
     
-    const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/data?q=' + 
+    let endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/data?q=' +
         searchText +
         '&rows=' + rows +
-        '&start=' + start;
+        '&start=' + start +
+        '&facet=true';
+
+    if(action.payload.facets){
+        action.payload.facets.forEach(facet => endpoint = endpoint + "&facet.field=" + facet.title);
+
+        action.payload.facets.forEach(facet => {
+            if(facet.value && facet.value !== ""){
+                endpoint = endpoint + "&ff." + facet.title + "=" + facet.value;
+            }
+        });
+    }
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();
@@ -49,8 +60,7 @@ function* fetchContextSearchResults(action){
 
     
     const endpoint = 'https://pds-dev-el7.jpl.nasa.gov/api/v1/search/context?q=' + 
-        searchText +
-        '&rows=3';
+        searchText;
 
     const response = yield call(fetch, endpoint);
     const data = yield response.json();

@@ -15,6 +15,8 @@ class SearchView extends Component {
             <div className="searchView">
                 <ProductLevelSuggestions></ProductLevelSuggestions>
 
+                <SearchContextResults></SearchContextResults>
+
                 <DataTypeTabs></DataTypeTabs>
                 <ResultFilters></ResultFilters>
 
@@ -25,11 +27,8 @@ class SearchView extends Component {
                             <SearchFacets></SearchFacets>
                         </div>
                         */}
-                        <div className="column">
+                        <div className="">
                             <SearchResults></SearchResults>
-                        </div>
-                        <div className="column">
-                            <SearchContextResults></SearchContextResults>
                         </div>
                     </div>
                 </div>

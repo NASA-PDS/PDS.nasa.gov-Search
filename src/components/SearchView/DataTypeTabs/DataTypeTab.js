@@ -15,7 +15,8 @@ class DataTypeTab extends Component {
         let state = {
             input: this.props.appReducer.searchInput,
             rows: this.props.appReducer.rows,
-            start: this.props.appReducer.start
+            start: 0,
+            facets: this.props.appReducer.facets
         }
 
         if(this.props.title === "Data"){

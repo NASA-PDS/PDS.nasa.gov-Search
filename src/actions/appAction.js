@@ -19,6 +19,19 @@ export const setDataType = (payload) => dispatch => {
     });
 }
 
+export const setFacetValue = (payload) => dispatch => {
+    dispatch({
+     type: 'SET_FACET_VALUE',
+     payload
+    });
+}
+
+export const clearFacetValues = () => dispatch => {
+    dispatch({
+     type: 'CLEAR_FACET_VALUES'
+    });
+}
+
 export const getDataSearchResults = (payload) => dispatch => {
     dispatch({
         type: 'GET_DATA_SEARCH_RESULTS',

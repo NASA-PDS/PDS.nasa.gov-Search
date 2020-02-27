@@ -5,7 +5,8 @@ import {
     setIsSearching,
     getDataSearchResults,
     getContextSearchResults,
-    getDocumentSearchResults
+    getDocumentSearchResults,
+    clearFacetValues
 } from '../../../actions/appAction';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -54,11 +55,13 @@ class SearchInput extends Component {
 
     doSearch = () => {
         this.props.dispatchSetIsSearching(this.state.isSearching);
+        this.props.dispatchClearFacetValues();
 
         let values = {
             input: this.props.appReducer.searchInput,
-            start: this.props.appReducer.start,
-            rows: this.props.appReducer.rows
+            start: 0,
+            rows: this.props.appReducer.rows,
+            facets: this.props.appReducer.facets
         }
 
         if(this.props.appReducer.dataType === "data"){
@@ -103,6 +106,7 @@ const mapDispatchToProps = dispatch => ({
     dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input)),
     dispatchGetContextSearchResults: (input) => dispatch(getContextSearchResults(input)),
     dispatchGetDocumentSearchResults: (input) => dispatch(getDocumentSearchResults(input)),
+    dispatchClearFacetValues: (input) => dispatch(clearFacetValues(input))
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  

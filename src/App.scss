@@ -151,11 +151,14 @@ $family-primary: $family-serif;
 
 .searchFacetGroup{
   /*font-size: 1.71em;*/
+  /*
   border: 0.05em solid #BDBDBD;
   padding: 3vh 1vh 3vh 1vh;
   border: 1px solid #cacaca;
   background: #efefef;
   min-width: 20vh;
+  */
+  margin-bottom: 15px;
 }
 
 .searchResults{
@@ -178,26 +181,50 @@ $family-primary: $family-serif;
   margin-bottom: 0.32em;
 }
 
+.searchFacet{
+  display: flex;
+}
+
+.searchFacetTitle{
+  margin-right: 5px;
+}
+
 .searchResultDescription{
   font-size: 1.1em;
 }
 
 .searchContextResults{
-  max-width: 40vh;
+  /*max-width: 40vh;
   padding-top: 1vh;
+  */
+  display: flex;
 }
 
 .searchContextResult{
   padding: 0vh 1vh 3vh 1vh;
+  max-width: 17vh;
+  min-width: 17vh;
 }
 
 .searchContextResultTitle{
   font-size: 1.71em;
-  margin-bottom: 0.32em;
 }
 
 .searchContextResultDescription{
   font-size: 1.1em;
+}
+
+.searchContextResult .card-content{
+  padding: 5px;
+}
+
+.searchContextResult .title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contextResultLink{
+  color: black;
 }
 
 .appFooter{
@@ -237,6 +264,8 @@ $family-primary: $family-serif;
 .productLevelCard{
   margin-right: 10px;
   margin-left: 10px;
+  max-width: 6vh;
+  min-width: 6vh;
 }
 
 .productLevelSuggestionSection .card-content{
@@ -288,10 +317,6 @@ $family-primary: $family-serif;
   height: 100%;
 }
 
-.productLevelCard .image{
-  height: 9vh;
-}
-
 .resultLink{
   color: #3273dc;
 }
@@ -306,6 +331,23 @@ $family-primary: $family-serif;
 
 .fullHeight{
   height: 100vh;
+}
+
+.productLevelSearchContainer{
+  height: 2vh;
+}
+
+.facetsTitle{
+  font-weight: bold;
+}
+
+.title.is-7{
+  font-size: 8px;
+}
+
+.searchFacetGroupTitle{
+  font-weight: bold;
+  font-size: large;
 }
 
 *:focus {

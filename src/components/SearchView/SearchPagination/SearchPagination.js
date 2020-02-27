@@ -16,7 +16,8 @@ class SearchInput extends Component {
         this.props.dispatchGetDataSearchResults({
             input: this.props.appReducer.searchInput, 
             start: newStart,
-            rows: this.props.appReducer.rows
+            rows: this.props.appReducer.rows,
+            facets: this.props.appReducer.facets
         });
     }
 

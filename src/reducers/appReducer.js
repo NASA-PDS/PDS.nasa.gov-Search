@@ -5,6 +5,20 @@ const initialState = {
   rows: 15,
   start: 0,
   dataType: "data",
+  facets: [
+    {
+      title: "science_facets",
+      value: "",
+    },
+    {
+      title: "processing_level",
+      value: "",
+    },
+    {
+      title: "investigation_id",
+      value: "",
+    }
+  ],
   searchFacets: {
     target: {
       results: [],
@@ -45,7 +59,18 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {
         dataType: action.payload
       });
+
+    case 'SET_FACET_VALUE':
+      let newFacetValueState = Object.assign({}, state);
+      let facet = newFacetValueState.facets.find(facet => facet.title === action.payload.title);
+      facet.value = action.payload.value;
+      return newFacetValueState;
     
+    case 'CLEAR_FACET_VALUES':
+      let clearedFacetValuesState = Object.assign({}, state);
+      clearedFacetValuesState.facets.forEach(facet => facet.value = '');
+      return clearedFacetValuesState;
+
     case 'RENDER_SEARCH_RESULTS':
       return Object.assign({}, state, {
         searchResults: action.payload,

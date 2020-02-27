@@ -12,7 +12,7 @@ class ProductLevelSuggestions extends Component {
                 title: "Small Bodies"
             },
             {
-                title: " Engineering "
+                title: "Engineering"
             },
             {
                 title: "Geosciences"
