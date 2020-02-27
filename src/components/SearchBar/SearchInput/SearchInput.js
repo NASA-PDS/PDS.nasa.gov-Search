@@ -11,8 +11,6 @@ import {
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
-import searchIcon from '../../../assets/images/search_icon_darkgrey@2x.png';
  
 class SearchInput extends Component {
     componentDidMount() {

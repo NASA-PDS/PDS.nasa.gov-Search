@@ -71,6 +71,16 @@ export default (state = initialState, action) => {
       clearedFacetValuesState.facets.forEach(facet => facet.value = '');
       return clearedFacetValuesState;
 
+    case 'CLEAR_FACET_VALUE':
+      let clearedFacetValueState = Object.assign({}, state);
+      clearedFacetValueState.facets.forEach(facet => {
+        if(facet.title === action.payload){
+          facet.value = '';
+        }
+      });
+      console.log("cleared facet value state", clearedFacetValueState);
+      return clearedFacetValueState;
+
     case 'RENDER_SEARCH_RESULTS':
       return Object.assign({}, state, {
         searchResults: action.payload,

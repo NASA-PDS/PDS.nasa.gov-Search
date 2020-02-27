@@ -26,28 +26,18 @@ class SearchFacet extends Component {
             facets: this.props.appReducer.facets
         }
 
-        console.log("get search with these values", values);
-
         if(this.props.appReducer.dataType === "data"){
             this.props.dispatchGetDataSearchResults(values);
         }
-
-        //change facet value in memory
-        //do search 
-
-        //the pagination should pick up on facet change
-        //search input should clear the facet value as it is a new search
-        //the data type should clear the facet value as it is new search    
     }
 
     render() {
-        //console.log("SEARCH RESULT prop", this.props);
         return (
             <div className="searchFacet">
                 <div
                     className="searchFacetTitle"
                     data-value={this.props.value}
-                    data-title={this.props.parentTitle}
+                    data-title={this.props.title}
                     onClick={this.handleFacetClick}
                 >
                     {this.props.value}

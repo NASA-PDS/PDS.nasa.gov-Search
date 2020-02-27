@@ -1,34 +1,74 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchFacet from '../SearchFacets/SearchFacet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import {
+    getDataSearchResults,
+    clearFacetValue
+} from '../../../actions/appAction';
 
 class SearchFacetGroup extends Component {
     componentDidMount() {
     }
 
+    handleClearFacetValue = (e) => {
+        e.preventDefault();
+        this.props.dispatchClearFacetValue(this.props.title);
+        
+        let values = {
+            input: this.props.appReducer.searchInput,
+            start: 0,
+            rows: this.props.appReducer.rows,
+            facets: this.props.appReducer.facets
+        }
+        this.props.dispatchGetDataSearchResults(values);
+    }
+
     render() {
         let facets = [];
-        console.log("facetItems", this.props.facetItems);
 
         if(this.props.facetItems){
             facets =this.props.facetItems.map((facet, index) =>
-                <SearchFacet key={index} {...facet} index={index} parentTitle={this.props.title}></SearchFacet>
-            );     
+                <SearchFacet key={index} {...facet} index={index} title={this.props.title}></SearchFacet>
+            );
+        }
+
+        let facet = '';
+        if(this.props.value && this.props.value !== ''){
+            facet = <div className="searchFacetGroup">
+                        <div className="searchFacetGroupTitle">
+                            {this.props.title}
+                        </div>
+                        <div>
+                            <span>
+                                {this.props.value}
+                            </span>
+                            <span
+                                onClick={this.handleClearFacetValue}
+                            >
+                                <FontAwesomeIcon icon={faWindowClose}/>
+                            </span>
+                        </div>
+                     </div>
         }
         
         return (
             <div>
-                { facets.length > 0 ? 
+                { facet !== '' ? 
+                    facet
+                    :
+                    facets.length > 0 ?
                     <div className="searchFacetGroup">
                         <div className="searchFacetGroupTitle">
                             {this.props.title}
                         </div>
                         <div>
-                            {facets}
+                           {facets}
                         </div>
                     </div>
                     :
-                    ""     
+                    ""
                 }
             </div>
         );
@@ -38,5 +78,11 @@ class SearchFacetGroup extends Component {
 const mapStateToProps = state => ({
     ...state
 });
+
+const mapDispatchToProps = dispatch => ({
+    dispatchClearFacetValue: (input) => dispatch(clearFacetValue(input)),
+    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
+});
  
-export default connect(mapStateToProps, null)(SearchFacetGroup);  
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(SearchFacetGroup);  

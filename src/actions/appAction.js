@@ -32,6 +32,13 @@ export const clearFacetValues = () => dispatch => {
     });
 }
 
+export const clearFacetValue = (payload) => dispatch => {
+    dispatch({
+     type: 'CLEAR_FACET_VALUE',
+     payload
+    });
+}
+
 export const getDataSearchResults = (payload) => dispatch => {
     dispatch({
         type: 'GET_DATA_SEARCH_RESULTS',
