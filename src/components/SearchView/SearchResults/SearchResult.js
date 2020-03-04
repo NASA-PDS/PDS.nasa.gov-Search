@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 class SearchResult extends Component {
     componentDidMount() {
@@ -18,6 +17,20 @@ class SearchResult extends Component {
                <a href={`https://sbnarchivedemo.psi.edu/?dataset=${this.props.lid}`} target="_blank">
                     <div className="title is-5 resultLink">{this.props.title}</div>
                 </a>
+                
+                <div><span className="searchResultDetailLabel"></span>{this.props.timestamp}</div>
+                <div className="searchResultDetails">
+                    <div>
+                        <div><span className="searchResultDetailLabel">Investigation:</span> {this.props.investigation_id}</div>
+                        <div><span className="searchResultDetailLabel">Target:</span> {this.props.target_id}</div>
+                        <div><span className="searchResultDetailLabel">Instrument:</span> {this.props.instrument_id}</div>
+                    </div>
+                    <div className="searchResultDetailsRightColumn">
+                        <div><span className="searchResultDetailLabel">Purpose:</span> {this.props.purpose}</div>
+                        <div><span className="searchResultDetailLabel">Data Type:</span> {this.props.collection_type}</div>
+                        <div><span className="searchResultDetailLabel">Processing Level:</span> {this.props.processing_level}</div>
+                    </div>
+                </div>
                 <div className="subtitle is-6">{this.props.description}</div>
             </div>
         );

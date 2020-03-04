@@ -168,12 +168,9 @@ $family-primary: $family-serif;
 }
 
 .searchResult{
-  padding: 2vh;
-}
-
-.searchResultsContainer{
-  /*display: grid;
-  grid-template-columns: auto auto auto auto;*/
+    padding: 2vh;
+    margin: 2vh;
+    border: 1px solid #a5a6a7;
 }
 
 .searchResultTitle{
@@ -299,10 +296,6 @@ $family-primary: $family-serif;
   border-radius: 0;
 }
 
-.searchResult.first{
-  padding-top: 0;
-}
-
 .appFooter{
   background: #024378;
 }
@@ -346,6 +339,30 @@ $family-primary: $family-serif;
 .searchFacetGroupTitle{
   font-weight: bold;
   font-size: large;
+}
+
+.searchResultDetails{
+  display: flex;
+}
+
+.searchResultDetailLabel{
+  font-weight: bold;
+}
+
+.searchResultDetailsRightColumn{
+  margin-left: 15px;
+}
+
+.facetsColumn{
+  margin-top: 2vh;
+}
+
+.facetsColumn{
+  margin-top: 2vh;
+}
+
+.productLevelSuggestionsColumn{
+  margin-top: 2vh;
 }
 
 *:focus {

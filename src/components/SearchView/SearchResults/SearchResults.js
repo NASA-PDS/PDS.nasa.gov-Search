@@ -38,13 +38,13 @@ class SearchResults extends Component {
         return (
             <div className="searchResults">
                 <div className="columns">
-                    <div>
+                    <div className="facetsColumn">
                         {facets}
                     </div>
                     <div>
                         {searchResults}
                     </div>
-                    <div>
+                    <div className="productLevelSuggestionsColumn">
                         <ProductLevelSuggestions></ProductLevelSuggestions>
                     </div>
                 </div>
