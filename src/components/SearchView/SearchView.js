@@ -5,7 +5,6 @@ import SearchFacets from './SearchFacets/SearchFacets';
 import SearchResults from './SearchResults/SearchResults';
 import SearchContextResults from './SearchResults/SearchContextResults/SearchContextResults';
 import SearchPagination from './SearchPagination/SearchPagination';
-import ProductLevelSuggestions from './ProductLevelSuggestions/ProductLevelSuggestions';
 
 class SearchView extends Component {
     componentDidMount() {
@@ -13,8 +12,6 @@ class SearchView extends Component {
     render() {
         return (
             <div className="searchView">
-                <ProductLevelSuggestions></ProductLevelSuggestions>
-
                 <SearchContextResults></SearchContextResults>
 
                 <DataTypeTabs></DataTypeTabs>
@@ -22,11 +19,6 @@ class SearchView extends Component {
 
                 <div className="searchResultsContainer">
                     <div className="columns">
-                        {/*
-                        <div className="column is-narrow">
-                            <SearchFacets></SearchFacets>
-                        </div>
-                        */}
                         <div className="">
                             <SearchResults></SearchResults>
                         </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchResult from './SearchResult';
 import SearchFacetGroup from '../SearchFacets/SearchFacetGroup';
+import ProductLevelSuggestions from '../ProductLevelSuggestions/ProductLevelSuggestions';
 
 class SearchResults extends Component {
     componentDidMount() {
@@ -42,6 +43,9 @@ class SearchResults extends Component {
                     </div>
                     <div>
                         {searchResults}
+                    </div>
+                    <div>
+                        <ProductLevelSuggestions></ProductLevelSuggestions>
                     </div>
                 </div>
             </div>

@@ -255,17 +255,15 @@ $family-primary: $family-serif;
 }
 
 .productLevelSuggestionSection{
-  display: flex;
   justify-content: start;
   margin-top: 5px;
   margin-bottom: 8px;
 }
 
 .productLevelCard{
-  margin-right: 10px;
-  margin-left: 10px;
-  max-width: 6vh;
-  min-width: 6vh;
+  max-width: 15vh;
+  min-width: 15vh;
+  margin-bottom: 10px;
 }
 
 .productLevelSuggestionSection .card-content{
