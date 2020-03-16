@@ -25,7 +25,7 @@ class SearchContextResult extends Component {
                                     <div className="contextResultLink">{this.props.title} </div>
                                 </a>
                                 :
-                                <a href={`https://sbnarchivedemo.psi.edu/?dataset=${this.props.lid}`} target="_blank">
+                                <a href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} target="_blank">
                                     <div className="contextResultLink">{this.props.title} </div>
                                 </a>
                             }

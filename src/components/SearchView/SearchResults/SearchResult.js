@@ -14,7 +14,7 @@ class SearchResult extends Component {
 
         return (
             <div className={searchResultClass}>
-               <a href={`https://sbnarchivedemo.psi.edu/?dataset=${this.props.lid}`} target="_blank">
+               <a href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} target="_blank">
                     <div className="title is-5 resultLink">{this.props.title}</div>
                 </a>
                 
