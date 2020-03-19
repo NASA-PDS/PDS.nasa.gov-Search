@@ -9,7 +9,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 ReactDOM.render(
     <Provider store={configureStore()}>
-        <BrowserRouter>
+        <BrowserRouter basename="/searchui/demo">
             <Route path="/" component={App}/>
         </BrowserRouter>
     </Provider>,
