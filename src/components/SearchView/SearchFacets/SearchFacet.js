@@ -5,6 +5,7 @@ import {
     getDocumentSearchResults,
     setFacetValue
 } from '../../../actions/appAction';
+import urlBuilder from '../../../utils/urlBuilder';
 
 class SearchFacet extends Component {
     componentDidMount() {
@@ -29,6 +30,11 @@ class SearchFacet extends Component {
         if(this.props.appReducer.dataType === "data"){
             this.props.dispatchGetDataSearchResults(values);
         }
+
+        this.props.history.push({
+            pathname: '/',
+            search: "?" + urlBuilder(this.props.appReducer, {start: 0})
+        });
     }
 
     render() {

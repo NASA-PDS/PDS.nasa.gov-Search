@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DataTypeTab from './DataTypeTab';
+import { Route } from 'react-router-dom'
  
 class DataTypeTabs extends Component {
     componentDidMount() {
@@ -8,29 +9,25 @@ class DataTypeTabs extends Component {
     render() {
         return (
             <div className="dataTypeTabs">
-                <DataTypeTab
-                    title="Data"
-                    isActive={
-                        this.props.appReducer.dataType === 'data'
-                    }
-                    isLeftmost={true}
-                >
-                </DataTypeTab>
-                <DataTypeTab
-                    title="Documentation"
-                    isActive={
-                        this.props.appReducer.dataType === 'documentation'
-                    }
-                >
-                </DataTypeTab>
-                <DataTypeTab
-                    title="Node Search Engines"
-                    isActive={
-                        this.props.appReducer.dataType === 'nodes'
-                    }
-                    isRightmost={true}
-                >
-                </DataTypeTab>
+                <Route path="/" render={(props) => 
+                    <DataTypeTab
+                        {...props}
+                        title="data"
+                        isActive={
+                            this.props.appReducer.dataType === 'data'
+                        }
+                        isLeftmost={true}
+                    />}
+                />
+                <Route path="/" render={(props) => 
+                    <DataTypeTab
+                        {...props}
+                        title="documentation"
+                        isActive={
+                            this.props.appReducer.dataType === 'documentation'
+                        }
+                    />}
+                />
             </div>
         );
     }

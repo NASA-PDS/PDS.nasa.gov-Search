@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBarFacets from './SearchBarFacets/SearchBarFacets';
 import SearchInput from './SearchInput/SearchInput';
+import { Route } from 'react-router-dom'
  
 class SearchBar extends Component {
     componentDidMount() {
@@ -8,7 +9,7 @@ class SearchBar extends Component {
     render() {
         return (
             <div className="searchBar">
-                <SearchInput></SearchInput>
+                <Route path="/" component={SearchInput}/>
                 {/*<SearchBarFacets></SearchBarFacets>*/}
             </div>
         );

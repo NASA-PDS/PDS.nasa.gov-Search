@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { 
     getDocumentSearchResults,
     getDataSearchResults,
-    setDataType
+    setDataType,
+    setStart
 } from '../../../actions/appAction';
+import urlBuilder from '../../../utils/urlBuilder';
  
 class DataTypeTab extends Component {
     componentDidMount() {
@@ -12,6 +14,8 @@ class DataTypeTab extends Component {
 
     handleButtonClick = (e) => {
         e.preventDefault();
+
+        this.props.dispatchSetStart(0);
         let state = {
             input: this.props.appReducer.searchInput,
             rows: this.props.appReducer.rows,
@@ -19,15 +23,19 @@ class DataTypeTab extends Component {
             facets: this.props.appReducer.facets
         }
 
-        if(this.props.title === "Data"){
+        if(this.props.title === "data"){
             this.props.dispatchSetDataType("data");
             this.props.dispatchGetDataSearchResults(state);
         }
-        if(this.props.title === "Documentation"){
+        if(this.props.title === "documentation"){
             this.props.dispatchSetDataType("documentation");
             this.props.dispatchGetDocumentSearchResults(state);
         }
-        
+
+        this.props.history.push({
+            pathname: '/',
+            search: "?" + urlBuilder(this.props.appReducer, {dataType: this.props.title, start: 0})
+        });
     }
 
     render() {
@@ -61,6 +69,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     dispatchSetDataType: (input) => dispatch(setDataType(input)),
+    dispatchSetStart: (input) => dispatch(setStart(input)),
     dispatchGetDocumentSearchResults: (input) => dispatch(getDocumentSearchResults(input)),
     dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
 });

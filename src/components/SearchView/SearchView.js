@@ -5,6 +5,7 @@ import SearchFacets from './SearchFacets/SearchFacets';
 import SearchResults from './SearchResults/SearchResults';
 import SearchContextResults from './SearchResults/SearchContextResults/SearchContextResults';
 import SearchPagination from './SearchPagination/SearchPagination';
+import { Route } from 'react-router-dom';
 
 class SearchView extends Component {
     componentDidMount() {
@@ -26,7 +27,7 @@ class SearchView extends Component {
                 </div>
 
                 <div>
-                    {<SearchPagination></SearchPagination>}
+                    <Route path="/" component={SearchPagination}/>
                 </div>
 
             </div>

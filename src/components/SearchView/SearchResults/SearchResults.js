@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import SearchResult from './SearchResult';
 import SearchFacetGroup from '../SearchFacets/SearchFacetGroup';
 import ProductLevelSuggestions from '../ProductLevelSuggestions/ProductLevelSuggestions';
+import { Route } from 'react-router-dom';
 
 class SearchResults extends Component {
     componentDidMount() {
     }
 
     render() {
-        console.log("results", this.props);
         let results = [];
         if(this.props.appReducer.searchResults && 
             this.props.appReducer.searchResults.response &&
@@ -27,7 +27,10 @@ class SearchResults extends Component {
                 
                 this.props.appReducer.facets.forEach((facet, index) => {
                     let facetItems = this.props.appReducer.searchResults.facet_fields[facet.title];
-                    facets.push(<SearchFacetGroup key={index} title={facet.title} facetItems={facetItems} value={facet.value}></SearchFacetGroup>);
+                    let facetGroup = <Route path="/" render={(props) => 
+                        <SearchFacetGroup {...props} key={index} title={facet.title} facetItems={facetItems} value={facet.value}/>
+                    }/>;
+                    facets.push(facetGroup);
                 });
         } 
 

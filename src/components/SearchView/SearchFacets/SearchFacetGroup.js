@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import SearchFacet from '../SearchFacets/SearchFacet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { Route } from 'react-router-dom'
+import urlBuilder from '../../../utils/urlBuilder';
 import {
     getDataSearchResults,
     clearFacetValue
@@ -23,14 +25,19 @@ class SearchFacetGroup extends Component {
             facets: this.props.appReducer.facets
         }
         this.props.dispatchGetDataSearchResults(values);
+
+        this.props.history.push({
+            pathname: '/',
+            search: "?" + urlBuilder(this.props.appReducer, {start: 0})
+        });
     }
 
     render() {
         let facets = [];
 
         if(this.props.facetItems){
-            facets =this.props.facetItems.map((facet, index) =>
-                <SearchFacet key={index} {...facet} index={index} title={this.props.title}></SearchFacet>
+            facets = this.props.facetItems.map((facet, index) =>
+                <Route path="/" render={(props) => <SearchFacet {...props} key={index} {...facet} index={index} title={this.props.title}></SearchFacet>}/>
             );
         }
 

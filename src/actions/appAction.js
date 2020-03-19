@@ -26,6 +26,13 @@ export const setFacetValue = (payload) => dispatch => {
     });
 }
 
+export const setStart = (payload) => dispatch => {
+    dispatch({
+     type: 'SET_START',
+     payload
+    });
+}
+
 export const clearFacetValues = () => dispatch => {
     dispatch({
      type: 'CLEAR_FACET_VALUES'

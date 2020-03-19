@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { 
+    setStart,
     getDataSearchResults
 } from '../../../actions/appAction';
+import urlBuilder from '../../../utils/urlBuilder';
  
 class SearchInput extends Component {
     componentDidMount() {
@@ -12,12 +14,19 @@ class SearchInput extends Component {
         e.preventDefault();
 
         let newStart = (e.currentTarget.getAttribute('data-value')  - 1) * this.props.appReducer.rows;
+
+        this.props.dispatchSetStart(newStart);
         
         this.props.dispatchGetDataSearchResults({
             input: this.props.appReducer.searchInput, 
             start: newStart,
             rows: this.props.appReducer.rows,
             facets: this.props.appReducer.facets
+        });
+
+        this.props.history.push({
+            pathname: '/',
+            search: "?" + urlBuilder(this.props.appReducer, {start: newStart})
         });
     }
 
@@ -219,7 +228,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
+    dispatchSetStart: (input) => dispatch(setStart(input)),
+    dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input)),
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);

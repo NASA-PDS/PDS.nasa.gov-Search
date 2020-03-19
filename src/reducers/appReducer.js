@@ -65,6 +65,11 @@ export default (state = initialState, action) => {
       let facet = newFacetValueState.facets.find(facet => facet.title === action.payload.title);
       facet.value = action.payload.value;
       return newFacetValueState;
+
+    case 'SET_START':
+      return Object.assign({}, state, {
+        start: action.payload
+      });
     
     case 'CLEAR_FACET_VALUES':
       let clearedFacetValuesState = Object.assign({}, state);
