@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
 
 class SearchResult extends Component {
     componentDidMount() {
     }
 
     render() {
-        //console.log("SEARCH RESULT prop", this.props);
-        var searchResultClass = "searchResult";
+        let searchResultClass = "searchResult";
         if(this.props.index === 0){
             searchResultClass = "searchResult first";
+        }
+
+        let timeStamp = this.props.timestamp;
+        let targetIds = this.props.target_id;
+        if(Array.isArray(targetIds)){
+            targetIds = targetIds[targetIds.length - 1];
         }
 
         return (
@@ -18,11 +24,11 @@ class SearchResult extends Component {
                     <div className="title is-5 resultLink">{this.props.title}</div>
                 </a>
                 
-                <div><span className="searchResultDetailLabel"></span>{this.props.timestamp}</div>
+                <div><span className="searchResultDetailLabel"></span> <Moment format="MMM D YYYY">{timeStamp}</Moment></div>
                 <div className="searchResultDetails">
                     <div>
                         <div><span className="searchResultDetailLabel">Investigation:</span> {this.props.investigation_id}</div>
-                        <div><span className="searchResultDetailLabel">Target:</span> {this.props.target_id}</div>
+                        <div><span className="searchResultDetailLabel">Target:</span> {targetIds}</div>
                         <div><span className="searchResultDetailLabel">Instrument:</span> {this.props.instrument_id}</div>
                     </div>
                     <div className="searchResultDetailsRightColumn">
