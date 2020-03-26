@@ -23,8 +23,6 @@ class SearchResult extends Component {
                <a href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} target="_blank">
                     <div className="title is-5 resultLink">{this.props.title}</div>
                 </a>
-                
-                <div><span className="searchResultDetailLabel"></span> <Moment format="MMM D YYYY">{timeStamp}</Moment></div>
                 <div className="searchResultDetails">
                     <div>
                         <div><span className="searchResultDetailLabel">Investigation:</span> {this.props.investigation_id}</div>
