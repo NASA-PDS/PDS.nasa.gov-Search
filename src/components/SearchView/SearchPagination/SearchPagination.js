@@ -68,12 +68,12 @@ class SearchInput extends Component {
         }
 
         let showFirstPagination = false;
-        if(paginationList[0] > 2){
+        if(paginationList[0] >= 2){
             showFirstPagination = true;
         }
 
         let showLastPagination = false;
-        if(Math.max(...paginationList) < paginations - 2){
+        if(Math.max(...paginationList) <= paginations - 1){
             showLastPagination = true;
         }
 
