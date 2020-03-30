@@ -4,9 +4,9 @@
   "homepage": "https://pds-dev2.jpl.nasa.gov/searchui/demo/",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "bulma": "^0.8.0",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
