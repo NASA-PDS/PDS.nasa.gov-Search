@@ -10,8 +10,8 @@ class ResultFilters extends Component {
         return (
             <div className="resultFilters">
                 <ResultCounter></ResultCounter>
-                <SortFilter></SortFilter>
-                <DateFilter></DateFilter>
+                {/*<SortFilter></SortFilter>*/}
+                {/*<DateFilter></DateFilter>*/}
             </div>
         );
     }
