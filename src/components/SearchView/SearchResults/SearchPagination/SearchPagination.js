@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { 
     setStart,
     getDataSearchResults
-} from '../../../actions/appAction';
-import urlBuilder from '../../../utils/urlBuilder';
+} from '../../../../actions/appAction';
+import urlBuilder from '../../../../utils/urlBuilder';
  
 class SearchInput extends Component {
     componentDidMount() {

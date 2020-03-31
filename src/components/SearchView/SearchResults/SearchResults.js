@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchResult from './SearchResult';
 import SearchFacetGroup from '../SearchFacets/SearchFacetGroup';
-import ProductLevelSuggestions from '../ProductLevelSuggestions/ProductLevelSuggestions';
+import ProductLevelSuggestions from './ProductLevelSuggestions/ProductLevelSuggestions';
+import SearchPagination from './SearchPagination/SearchPagination';
+import ResultFilters from './ResultFilters/ResultFilters';
 import { Route } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
 
 class SearchResults extends Component {
     componentDidMount() {
@@ -42,12 +46,26 @@ class SearchResults extends Component {
             <div className="searchResults">
                 <div className="columns">
                     <div className="facetsColumn">
+                        <div className="filtersTitle">
+                            <FontAwesomeIcon icon={faSlidersH}/> Filters
+                        </div>
                         {facets}
                     </div>
-                    <div>
-                        {searchResults}
+                    <div className="resultsColumn">
+                        <div>
+                            <ResultFilters></ResultFilters>
+                        </div>
+                        <div>
+                            {searchResults}
+                        </div>
+                        <div>
+                            <Route path="/" component={SearchPagination}/>
+                        </div>
                     </div>
                     <div className="productLevelSuggestionsColumn">
+                        <div className="productLevelSuggestionsTitle">
+                            Nodes
+                        </div>
                         <ProductLevelSuggestions></ProductLevelSuggestions>
                     </div>
                 </div>

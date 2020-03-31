@@ -38,7 +38,6 @@ $family-primary: $family-serif;
 .button.dark{
   opacity: 1;
   color: #777;
-  border-color: #a5a6a7;
   font-size: medium;
   font-weight: 600;
 }
@@ -47,7 +46,6 @@ $family-primary: $family-serif;
   cursor: pointer;
   background-color: #6083aa;
   color: white;
-  border-color: #6083aa;
   opacity: 1;
 }
 
@@ -124,16 +122,19 @@ $family-primary: $family-serif;
 
 .dataTypeTabs{
   display: flex;
-  border-bottom: 1px solid #a5a6a7;
+  background: #e4e9ef;
+  padding: 1vh 1vh 1vh 1vh;
+  margin: 0 1vw 0 1vw;
 }
 
 .resultFilters{
   display: flex;
-  padding: 1vh;
+  border-bottom: 1px solid #a5a6a7;
 }
 
 .resultFilter{
-  padding: 1vh 3vh 1vh 3vh;
+  font-size: larger;
+  font-weight: bold;
 }
 
 .sortByFilter{
@@ -150,27 +151,18 @@ $family-primary: $family-serif;
 }
 
 .searchFacetGroup{
-  /*font-size: 1.71em;*/
-  /*
-  border: 0.05em solid #BDBDBD;
-  padding: 3vh 1vh 3vh 1vh;
-  border: 1px solid #cacaca;
-  background: #efefef;
-  min-width: 20vh;
-  */
-  margin-bottom: 15px;
+  margin-bottom: 1vh;
 }
 
 .searchResults{
-  padding: 1vh;
+  padding: 0 2vh 0 2vh;
   grid-column-start: 2;
   grid-column-end: 4;
 }
 
 .searchResult{
     padding: 2vh;
-    margin: 2vh;
-    border: 1px solid #a5a6a7;
+    border-bottom: 1px solid #a5a6a7;
 }
 
 .searchResultTitle{
@@ -191,12 +183,12 @@ $family-primary: $family-serif;
 }
 
 .searchContextResults{
-  padding: 2vh 0 2vh 0;
+  padding: 2vh 2vh 2vh 2vh;
   display: flex;
 }
 
 .searchContextResult{
-  padding: 0vh 1vh 0 1vh;
+  padding: 0 1vh 0 0;
   max-width: 17vh;
   min-width: 17vh;
 }
@@ -251,8 +243,6 @@ $family-primary: $family-serif;
 
 .productLevelSuggestionSection{
   justify-content: start;
-  margin-top: 5px;
-  margin-bottom: 8px;
 }
 
 .productLevelCard{
@@ -271,7 +261,7 @@ $family-primary: $family-serif;
 
 .dataTabButton{
   border-radius: 0;
-  border-bottom: none;
+  border: none;
 }
 
 .leftmostTypeTab{
@@ -310,11 +300,11 @@ $family-primary: $family-serif;
   color: #3273dc;
 }
 .resultLink:hover{
-  color: black;
+  color: #6083aa;
 }
 
 .button.dataTabButton.dataTypeTabActive{
-  background-color: #3273dc;
+  background-color: #6083aa;
   color: white;
 }
 
@@ -336,7 +326,7 @@ $family-primary: $family-serif;
 
 .searchFacetGroupTitle{
   font-weight: bold;
-  font-size: large;
+  font-size: medium;
 }
 
 .searchResultDetails{
@@ -372,8 +362,37 @@ $family-primary: $family-serif;
   margin: 0;
 }
 
+.columns:last-child {
+  margin-bottom: 0;
+}
+
+.filtersTitle{
+  font-size: larger;
+  font-weight: bold;
+  border-bottom: 1px solid #a5a6a7;
+  margin-bottom: 2vh;
+}
+
+.resultsColumn{
+  margin: 0 3vw 0 3vw;
+  padding-top: 2vh;
+}
+
+.productLevelSuggestionsTitle{
+  font-size: larger;
+  font-weight: bold;
+  border-bottom: 1px solid #a5a6a7;
+  margin-bottom: 2vh;
+}
+
 .pagination{
   padding: 2vh 0 2vh 0;
+}
+
+.pagination-link.is-current {
+  background-color: #6083aa;
+  border-color: #6083aa;
+  color: #fff;
 }
 
 .button, .input, .textarea, .select select, .file-cta, .file-name, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
