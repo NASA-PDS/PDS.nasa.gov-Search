@@ -6,7 +6,7 @@ class Footer extends Component {
 
     render() {
         return (
-            <div className="appFooter has-background-dark">
+            <div className="appFooter">
                 <div className="footerLinks">
                     <div className="footerLink">
                         <a href="http://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>
@@ -29,7 +29,7 @@ class Footer extends Component {
                     <div className="footerLink">
                         <a href="/contact_JPL.php">Feedback</a>
                     </div>      
-                </div>     
+                </div> 
             </div>
         );
     }
