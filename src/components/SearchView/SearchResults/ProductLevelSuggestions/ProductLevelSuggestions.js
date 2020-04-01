@@ -9,13 +9,16 @@ class ProductLevelSuggestions extends Component {
     render() {
         let itemList = [
             {
-                title: "Small Bodies"
+                title: "Small Bodies",
+                url: "https://pdssbn.astro.umd.edu/data_sb/by_mission.shtml"
             },
             {
-                title: "Engineering"
+                title: "Engineering",
+                url: "https://pds-engineering.jpl.nasa.gov/user/login?destination=node/1"
             },
             {
-                title: "Geosciences"
+                title: "Geosciences",
+                url: "https://pds-geosciences.wustl.edu/dataserv/default.htm"
             }
         ];
 

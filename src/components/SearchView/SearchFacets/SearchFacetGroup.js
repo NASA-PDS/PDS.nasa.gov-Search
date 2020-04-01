@@ -51,7 +51,7 @@ class SearchFacetGroup extends Component {
                             <span>
                                 {this.props.value}
                             </span>
-                            <span
+                            <span class="facetCloseButton"
                                 onClick={this.handleClearFacetValue}
                             >
                                 <FontAwesomeIcon icon={faWindowClose}/>

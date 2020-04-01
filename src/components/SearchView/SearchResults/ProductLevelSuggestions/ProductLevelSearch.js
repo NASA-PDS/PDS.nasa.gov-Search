@@ -5,8 +5,6 @@ class ProductLevelSearch extends Component {
     }
 
     render() {
-        let title = this.props.title;
-
         return (
             <div className="productLevelCard">
                 <div className="card">
@@ -16,7 +14,9 @@ class ProductLevelSearch extends Component {
                         </figure>
                     </div>
                     <div className="card-content">
-                        <p className="title is-7">{title}</p>
+                        <a href={this.props.url} target="_blank">
+                            <div className="productLevelLink title is-7">{this.props.title} </div>
+                        </a>
                     </div>
                 </div>
             </div>

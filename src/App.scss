@@ -183,14 +183,17 @@ $family-primary: $family-serif;
 }
 
 .searchContextResults{
+  margin: 0 1vw 0 1vw;
   padding: 2vh 2vh 2vh 2vh;
-  display: flex;
+  white-space: nowrap;
+  overflow: auto;
 }
 
 .searchContextResult{
   padding: 0 1vh 0 0;
-  max-width: 17vh;
-  min-width: 17vh;
+  display: inline-block;
+  white-space: normal;
+  max-width: 300px;
 }
 
 .searchContextResultTitle{
@@ -203,6 +206,8 @@ $family-primary: $family-serif;
 
 .searchContextResult .card-content{
   padding: 5px;
+  height: 43px;
+  overflow: auto;
 }
 
 .searchContextResult .title{
@@ -210,8 +215,21 @@ $family-primary: $family-serif;
   justify-content: space-between;
 }
 
+.contextCardImage{
+  max-height: 100px;
+  min-height: 100px;
+}
+
 .contextResultLink{
   color: black;
+}
+
+.contextResultLink:hover{
+  color: #6083aa;
+}
+
+.productLevelLink:hover{
+  color: #6083aa;
 }
 
 .appFooter{
@@ -224,7 +242,7 @@ $family-primary: $family-serif;
 }
 
 .footerLinks a{
-  color: white;
+  color: black;
   padding-left: 1vh;
   padding-right: 1vh;
 }
@@ -285,8 +303,18 @@ $family-primary: $family-serif;
 }
 
 .appFooter{
-  background: black;
+  background: #e4e9ef;
 }
+
+.facetCloseButton{
+  margin-left:5px;
+}
+
+.facetCloseButton:hover{
+  color: red;
+  cursor: pointer;
+}
+
 
 .card.contextCard{
   height: 100%;
@@ -376,6 +404,11 @@ $family-primary: $family-serif;
 .resultsColumn{
   margin: 0 3vw 0 3vw;
   padding-top: 2vh;
+}
+
+.searchFacetTitle:hover{
+  color: #6083aa;
+  cursor: pointer;
 }
 
 .productLevelSuggestionsTitle{
