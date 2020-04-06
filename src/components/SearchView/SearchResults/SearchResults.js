@@ -37,38 +37,37 @@ class SearchResults extends Component {
                     facets.push(facetGroup);
                 });
         } 
-
-        if(results.length < 1){
-            searchResults = <div className="noResultsMessage">No Results Found.</div>
-        }
         
         return (
             <div className="searchResults">
-                <div className="columns">
-                    <div className="facetsColumn">
-                        <div className="filtersTitle">
-                            <FontAwesomeIcon icon={faSlidersH}/> Filters
+                {results.length < 1? <div className="noResultsMessage">No Results Found.</div> :
+                    <div className="columns">
+                        <div className="facetsColumn">
+                            <div className="filtersTitle">
+                                <FontAwesomeIcon icon={faSlidersH}/> Filters
+                            </div>
+                            {facets}
                         </div>
-                        {facets}
+                        <div className="resultsColumn">
+                            <div>
+                                <ResultFilters></ResultFilters>
+                            </div>
+                            <div>
+                                {searchResults}
+                            </div>
+                            <div>
+                                <Route path="/" component={SearchPagination}/>
+                            </div>
+                        </div>
+                        <div className="productLevelSuggestionsColumn">
+                            <div className="productLevelSuggestionsTitle">
+                                Nodes
+                            </div>
+                            <ProductLevelSuggestions></ProductLevelSuggestions>
+                        </div>
                     </div>
-                    <div className="resultsColumn">
-                        <div>
-                            <ResultFilters></ResultFilters>
-                        </div>
-                        <div>
-                            {searchResults}
-                        </div>
-                        <div>
-                            <Route path="/" component={SearchPagination}/>
-                        </div>
-                    </div>
-                    <div className="productLevelSuggestionsColumn">
-                        <div className="productLevelSuggestionsTitle">
-                            Nodes
-                        </div>
-                        <ProductLevelSuggestions></ProductLevelSuggestions>
-                    </div>
-                </div>
+                }
+                
             </div>
         );
     }
