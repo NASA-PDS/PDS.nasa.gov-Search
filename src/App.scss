@@ -381,6 +381,11 @@ $family-primary: $family-serif;
   margin-top: 2vh;
 }
 
+.noResultsProductLevelContainer .productLevelSuggestionSection .productLevelCard{
+  display: inline-block;
+  margin-right: 10px;
+}
+
 *:focus {
   outline: none;
 }

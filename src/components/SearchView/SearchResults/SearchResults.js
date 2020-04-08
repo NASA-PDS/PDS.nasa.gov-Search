@@ -40,7 +40,18 @@ class SearchResults extends Component {
         
         return (
             <div className="searchResults">
-                {results.length < 1? <div className="noResultsMessage">No Results Found.</div> :
+                {results.length < 1? 
+                    <div>
+                        <div className="noResultsMessage">No Results Found.</div>
+
+                        <div>
+                                Try your search for "{this.props.appReducer.searchInput}" again in one of these more specific searches.
+                        </div>
+                        <div className="noResultsProductLevelContainer">
+                            <ProductLevelSuggestions></ProductLevelSuggestions>
+                        </div>
+                    </div>
+                    :
                     <div className="columns">
                         <div className="facetsColumn">
                             <div className="filtersTitle">
