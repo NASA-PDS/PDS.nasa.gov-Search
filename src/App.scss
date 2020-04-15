@@ -1,0 +1,439 @@
+@import '../node_modules/bulma/sass/utilities/initial-variables.sass';
+
+$blue: #72d0eb;
+$pink: #ffb3b3;
+$pink-invert: #fff;
+$family-serif: "Merriweather", "Georgia", serif;
+
+@import '../node_modules/bulma/sass/utilities/derived-variables.sass';
+$primary: $pink;
+$primary-invert: $pink-invert;
+$family-primary: $family-serif;
+
+@import '../node_modules/bulma/css/bulma.css';
+
+.App {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.button.dark{
+  opacity: 1;
+  color: #777;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.button.dark:hover{
+  cursor: pointer;
+  background-color: #6083aa;
+  color: white;
+  opacity: 1;
+}
+
+.header{
+  background: #e4e9ef;
+  display: flex;
+  padding: 2vh 3vw 2vh 3vw;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.15);
+}
+
+.headerTitle{
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: xx-large;
+  font-weight: 500;
+  color: black;
+}
+
+.searchBar{
+  margin: auto;
+}
+
+.headerLogo{
+  max-height: 7vh;
+  margin-top: auto;
+  margin-bottom: auto; 
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+}
+
+.searchInput{
+  width: 80vh;
+  font-size: xx-large;
+  max-width: 60vh;
+  border: none;
+  padding: 0 0 0 20px;
+  border-radius: 20px 0 0 20px;
+}
+
+.searchButton{
+  border: none;
+  border-radius: 0 20px 20px 0;
+  padding-right: 20px;
+  font-size: xx-large;
+}
+
+.searchBarFacets{
+  display: flex;
+}
+
+.searchBarFacet{
+  padding: 5px;
+  width: 100%;
+  height: 35px;
+  color: white;
+  font-weight: 600;
+  background: #4b6a8d;
+  display: flex;
+  justify-content: space-around;
+}
+
+.searchBarFacet:hover{
+  color: #4b6a8d;
+  background: white;
+}
+
+.searchView{
+  padding: 0 1vw 0 1vw;
+  min-height: 100vh;
+}
+
+.dataTypeTabs{
+  display: flex;
+  background: #e4e9ef;
+  padding: 1vh 1vh 1vh 1vh;
+  margin: 0 1vw 0 1vw;
+}
+
+.resultFilters{
+  display: flex;
+  border-bottom: 1px solid #a5a6a7;
+}
+
+.resultFilter{
+  font-size: larger;
+  font-weight: bold;
+}
+
+.sortByFilter{
+  padding: 6px 20px 6px 6px;
+  width: 100%;
+  height: 35px;
+  color: white;
+  background: #3273dc  url(http://localhost:9000/assets/images/arrows_select_box.png) no-repeat 94% 5px;
+  font-weight: 600;
+}
+
+.searchFacets{
+  padding-top: 1vh;
+}
+
+.searchFacetGroup{
+  margin-bottom: 1vh;
+}
+
+.searchResults{
+  padding: 0 2vh 0 2vh;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.searchResult{
+    padding: 2vh;
+    border-bottom: 1px solid #a5a6a7;
+}
+
+.searchResultTitle{
+  font-size: 1.71em;
+  margin-bottom: 0.32em;
+}
+
+.searchFacet{
+  display: flex;
+}
+
+.searchFacetTitle{
+  margin-right: 5px;
+}
+
+.searchResultDescription{
+  font-size: 1.1em;
+}
+
+.searchContextResults{
+  margin: 0 1vw 0 1vw;
+  padding: 2vh 2vh 2vh 2vh;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.searchContextResult{
+  padding: 0 1vh 0 0;
+  display: inline-block;
+  white-space: normal;
+  max-width: 300px;
+}
+
+.searchContextResultTitle{
+  font-size: 1.71em;
+}
+
+.searchContextResultDescription{
+  font-size: 1.1em;
+}
+
+.searchContextResult .card-content{
+  padding: 5px;
+  height: 43px;
+  overflow: auto;
+}
+
+.searchContextResult .title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.contextCardImage{
+  max-height: 100px;
+  min-height: 100px;
+}
+
+.contextResultLink{
+  color: black;
+}
+
+.contextResultLink:hover{
+  color: #6083aa;
+}
+
+.productLevelLink:hover{
+  color: #6083aa;
+}
+
+.appFooter{
+  padding: 2vh;
+}
+
+.footerLinks{
+  display: flex;
+  justify-content: center;
+}
+
+.footerLinks a{
+  color: black;
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
+
+.productDetail{
+  min-height: 100vh;
+}
+
+.contextDetail{
+  min-height: 100vh;
+}
+
+.browsingList{
+  margin-top: 1vh;
+}
+
+.productLevelSuggestionSection{
+  justify-content: start;
+}
+
+.productLevelCard{
+  max-width: 15vh;
+  min-width: 15vh;
+  margin-bottom: 10px;
+}
+
+.productLevelSuggestionSection .card-content{
+  padding: 0.5rem;
+}
+
+.noResultsMessage{
+  font-size: xx-large;
+}
+
+.dataTabButton{
+  border-radius: 0;
+  border: none;
+}
+
+.leftmostTypeTab{
+  border-right: none;
+}
+
+.rightmostTypeTab{
+  border-left: none;
+}
+
+.searchBarFacetButton{
+  border-radius: 0;
+}
+
+.sectionDropDownButton{
+  border-radius: 0;
+}
+
+.dropdown-content{
+  border-radius: 0;
+}
+
+.appFooter{
+  background: #e4e9ef;
+}
+
+.facetCloseButton{
+  margin-left:5px;
+}
+
+.facetCloseButton:hover{
+  color: red;
+  cursor: pointer;
+}
+
+
+.card.contextCard{
+  height: 100%;
+}
+
+.card.dataCard{
+  height: 100%;
+}
+
+.resultLink{
+  color: #3273dc;
+}
+.resultLink:hover{
+  color: #6083aa;
+}
+
+.button.dataTabButton.dataTypeTabActive{
+  background-color: #6083aa;
+  color: white;
+}
+
+.fullHeight{
+  height: 100vh;
+}
+
+.productLevelSearchContainer{
+  height: 2vh;
+}
+
+.facetsTitle{
+  font-weight: bold;
+}
+
+.title.is-7{
+  font-size: 8px;
+}
+
+.searchFacetGroupTitle{
+  font-weight: bold;
+  font-size: medium;
+}
+
+.searchResultDetails{
+  display: flex;
+}
+
+.searchResultDetailLabel{
+  font-weight: bold;
+}
+
+.searchResultDetailsRightColumn{
+  margin-left: 15px;
+}
+
+.facetsColumn{
+  margin-top: 2vh;
+}
+
+.facetsColumn{
+  margin-top: 2vh;
+}
+
+.productLevelSuggestionsColumn{
+  margin-top: 2vh;
+}
+
+.noResultsProductLevelContainer .productLevelSuggestionSection .productLevelCard{
+  display: inline-block;
+  margin-right: 10px;
+}
+
+*:focus {
+  outline: none;
+}
+
+/*Bulma overrides*/
+.columns{
+  margin: 0;
+}
+
+.columns:last-child {
+  margin-bottom: 0;
+}
+
+.filtersTitle{
+  font-size: larger;
+  font-weight: bold;
+  border-bottom: 1px solid #a5a6a7;
+  margin-bottom: 2vh;
+}
+
+.resultsColumn{
+  margin: 0 3vw 0 3vw;
+  padding-top: 2vh;
+}
+
+.searchFacetTitle:hover{
+  color: #6083aa;
+  cursor: pointer;
+}
+
+.productLevelSuggestionsTitle{
+  font-size: larger;
+  font-weight: bold;
+  border-bottom: 1px solid #a5a6a7;
+  margin-bottom: 2vh;
+}
+
+.pagination{
+  padding: 2vh 0 2vh 0;
+}
+
+.pagination-link.is-current {
+  background-color: #6083aa;
+  border-color: #6083aa;
+  color: #fff;
+}
+
+.button, .input, .textarea, .select select, .file-cta, .file-name, .pagination-previous, .pagination-next, .pagination-link, .pagination-ellipsis {
+  border-radius: 0;
+  cursor: pointer;
+}
