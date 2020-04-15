@@ -1,4 +1,4 @@
-PDS XYZ Tool (update licensing below per specific organization)
+PDS.nasa.gov Search
 
 Copyright 2020, California Institute of Technology ("Caltech").
 U.S. Government sponsorship acknowledged.
