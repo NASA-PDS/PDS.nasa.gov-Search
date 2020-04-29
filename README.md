@@ -1,3 +1,6 @@
+# PDS Search
+Front-end interface for PDS.nasa.gov data search capability 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +69,52 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Using The Search Widget
+
+## 1) Add The Search Widget File
+Copy the search_widget/searchWidget.js file and put it somewhere in your project. Add this script as you would in any html file for example: `<script src="js/searchWidget.js" type="text/javascript"></script>`
+
+Add `<div id="searchWidget"></div>` into the location where you desire to show the search widget. 
+
+## 2) Point To Your Search Service
+
+In searchWidget.js find the line:
+`let searchUrl = "";`
+
+Place the URL to your search service between the quotes. For example: `let searchUrl = "https://pds.nasa.gov/search";`
+
+## 3) Changing The Label
+
+Find the line:
+`let searchButtonLabel = "Search";`
+Change `"Search"` to any HTML that you would like the button to contain.
+
+## 4) Changing The Styling
+
+CSS can be changed by adding two selectors to your CSS file.
+```css
+#searchWidget button{
+}
+#searchWidget input{
+}
+```
+
+## Special Instructions For Placement Inside Javascript PDS Header
+
+PDS can use a pure javascript header at the moment of this writing. Adding the widget to this header is different from simply adding a div with an ID.
+
+### Modify pds-web-header.js
+
+Find these specific lines of code in pds-web-header/pds-web-header.js
+```javascript
+help_container.appendChild(help_text);
+help_container.appendChild(help_icon);
+```
+
+Directly under these two lines add this code
+```javascript
+let searchContainer = document.createElement("div");
+searchContainer.setAttribute("id", "searchWidget");
+header_right.appendChild(searchContainer);
+```
