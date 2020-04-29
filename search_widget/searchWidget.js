@@ -34,10 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
             submitSearch();
         });
 
-        input.onchange = () => {
-        submitSearch();
-        };
-
         submitSearch = () => {
             let searchText = getSearchInput();
             window.open(searchUrl + "/?&search=" + searchText);
