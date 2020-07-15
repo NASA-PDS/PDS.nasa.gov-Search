@@ -9,8 +9,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles';
 import Theme from './Theme';
 
-
-
 ReactDOM.render(
     <ThemeProvider theme={Theme}>
         <Provider store={configureStore()}>

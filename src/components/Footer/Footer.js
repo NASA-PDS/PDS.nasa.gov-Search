@@ -1,36 +1,67 @@
 import React, { Component } from 'react';
+import { Container, Typography, Link } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = (theme) => ({
+    footerBackground: {
+        paddingTop: "25px",
+        paddingBottom: "25px",
+        backgroundColor: theme.palette.primary.main
+    },
+    footerLinks: {
+        color: theme.palette.primary.contrastText,
+        marginRight: theme.spacing(2)
+    }
+  });
 
 class Footer extends Component {
     componentDidMount() {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div className="appFooter">
-                <div className="footerLinks">
-                    <div className="footerLink">
-                        <a href="http://www.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="http://www.caltech.edu/" target="_blank" rel="noopener noreferrer">Caltech</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="/copyrights.php" target="_blank" rel="noopener noreferrer">Privacy</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="/copyrights.php" target="_blank" rel="noopener noreferrer">Privacy</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="/imagepolicy">Image Policy</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="/faq.php">FAQ</a>
-                    </div>
-                    <div className="footerLink">
-                        <a href="/contact_JPL.php">Feedback</a>
-                    </div>      
-                </div> 
-            </div>
+            <Container className={classes.footerBackground}>
+                <Typography >
+                    <Link 
+                        className={classes.footerLinks}
+                        href="http://www.nasa.gov/" 
+                        target="_blank" 
+                        rel="noopener"
+                    >
+                        NASA
+                    </Link>
+                    <Link 
+                        className={classes.footerLinks}
+                        href="http://www.caltech.edu/" 
+                        target="_blank" 
+                        rel="noopener"
+                    >
+                        Caltech
+                    </Link>
+                    <Link
+                        className={classes.footerLinks}
+                    >
+                        Privacy
+                    </Link>
+                    <Link
+                        className={classes.footerLinks}
+                    >
+                        Image Policy
+                    </Link>
+                    <Link
+                        className={classes.footerLinks}
+                    >
+                        FAQ
+                    </Link>
+                    <Link
+                        className={classes.footerLinks}
+                    >
+                        Feedback
+                    </Link>
+                </Typography>
+            </Container>
         );
     }
 }
@@ -39,4 +70,4 @@ const mapStateToProps = (state) => ({
     appReducer: state.appReducer
 })
  
-export default Footer;
+export default (withStyles(useStyles)(Footer));

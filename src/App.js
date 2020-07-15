@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import './App.scss';
-
-import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
 import Footer from './components/Footer/Footer';
+import { AppBar, IconButton, Toolbar, Typography, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 import logo from './assets/images/logo_nasa.png';
 
-import { 
+import {
   setSearchInput,
   setDataType,
   setFacetValue,
   setStart,
   getDataSearchResults
 } from './actions/appAction';
+
+const useStyles = (theme) => ({
+  root: {
+    flexGrow: 1
+  },
+  menuButton: {
+    marginRight: theme.spacing(2)
+  },
+  title: {
+    flexGrow: 1
+  },
+  headerLogo: {
+    maxHeight: "7vh"
+  }
+});
 
 class App extends Component {
   constructor(props) {
@@ -61,20 +75,26 @@ class App extends Component {
   }
 
   render() {
+    const { classes } = this.props;
     const {appReducer} = this.props;
 
     return (
       <div className="App">
-        <div className="header">
-          <img src={logo} 
-            className="headerLogo"
-            alt=""
-          />
-          <div className="headerTitle">
-            Planetary Data System
-          </div>
-          <SearchBar></SearchBar>
-        </div>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton edge="start" aria-label="Nasa">
+              <img 
+                src={logo} 
+                className={classes.headerLogo}
+                alt=""
+              />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              Planetary Data System
+            </Typography>
+
+          </Toolbar>
+        </AppBar>
 
         {appReducer.isSearching ? <SearchView></SearchView>: <BrowseView></BrowseView>}
 
@@ -96,4 +116,4 @@ const mapDispatchToProps = dispatch => ({
   dispatchGetDataSearchResults: (input) => dispatch(getDataSearchResults(input))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(useStyles)(App));
