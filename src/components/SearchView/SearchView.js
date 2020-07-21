@@ -4,13 +4,21 @@ import SearchFacets from './SearchFacets/SearchFacets';
 import SearchResults from './SearchResults/SearchResults';
 import SearchContextResults from './SearchResults/SearchContextResults/SearchContextResults';
 import { Route } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = (theme) => ({
+    containerMargins: theme.containerMargins
+});
 
 class SearchView extends Component {
     componentDidMount() {
     }
     render() {
+        const { classes } = this.props;
+        
         return (
-            <div className="searchView">
+            <Container className={classes.containerMargins}>
                 <SearchContextResults></SearchContextResults>
 
                 <DataTypeTabs></DataTypeTabs>
@@ -22,10 +30,9 @@ class SearchView extends Component {
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </Container>
         );
     }
 }
  
-export default SearchView;
+export default (withStyles(useStyles)(SearchView));

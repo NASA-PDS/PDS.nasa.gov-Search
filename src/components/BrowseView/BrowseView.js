@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const useStyles = (theme) => ({
     fullHeight: {
         height: "100vh"
+    },
+    searchBarCenter: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center"
     }
 });
  
@@ -16,6 +24,9 @@ class BrowseView extends Component {
         
         return (
             <div className={classes.fullHeight}>
+                <div className={classes.searchBarCenter}>
+                    <SearchBar></SearchBar>
+                </div>
             </div>
         );
     }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
 import Footer from './components/Footer/Footer';
-import { AppBar, IconButton, Toolbar, Typography, Button } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 import logo from './assets/images/logo_nasa.png';
@@ -92,6 +92,8 @@ class App extends Component {
             <Typography variant="h6" className={classes.title}>
               Planetary Data System
             </Typography>
+
+            {appReducer.isSearching ? <SearchBar></SearchBar> : ""}
 
           </Toolbar>
         </AppBar>

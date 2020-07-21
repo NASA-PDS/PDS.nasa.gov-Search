@@ -12,7 +12,7 @@ const useStyles = (theme) => ({
         color: theme.palette.primary.contrastText,
         marginRight: theme.spacing(2)
     }
-  });
+});
 
 class Footer extends Component {
     componentDidMount() {
