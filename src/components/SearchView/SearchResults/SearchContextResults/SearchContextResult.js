@@ -32,9 +32,23 @@ class SearchContextResult extends Component {
                 </CardContent>
                 <CardActions>
                     { this.props.resource_url ?
-                        <Button href={this.props.resource_url} rel="noopener" target="_blank">Learn More</Button>
+                        <Button 
+                            href={this.props.resource_url} 
+                            rel="noopener" 
+                            target="_blank"
+                            color="primary"
+                        >
+                            More
+                        </Button>
                         :
-                        <Button href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} rel="noopener" target="_blank">Learn More</Button>
+                        <Button 
+                            href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} 
+                            rel="noopener" 
+                            target="_blank"
+                            color="primary"
+                        >
+                            More
+                        </Button>
                     }
                 </CardActions>
             </Card>
