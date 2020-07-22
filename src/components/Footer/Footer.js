@@ -22,46 +22,48 @@ class Footer extends Component {
         const { classes } = this.props;
 
         return (
-            <Container className={classes.footerBackground}>
-                <Typography >
-                    <Link 
-                        className={classes.footerLinks}
-                        href="http://www.nasa.gov/" 
-                        target="_blank" 
-                        rel="noopener"
-                    >
-                        NASA
-                    </Link>
-                    <Link 
-                        className={classes.footerLinks}
-                        href="http://www.caltech.edu/" 
-                        target="_blank" 
-                        rel="noopener"
-                    >
-                        Caltech
-                    </Link>
-                    <Link
-                        className={classes.footerLinks}
-                    >
-                        Privacy
-                    </Link>
-                    <Link
-                        className={classes.footerLinks}
-                    >
-                        Image Policy
-                    </Link>
-                    <Link
-                        className={classes.footerLinks}
-                    >
-                        FAQ
-                    </Link>
-                    <Link
-                        className={classes.footerLinks}
-                    >
-                        Feedback
-                    </Link>
-                </Typography>
-            </Container>
+            <div className={classes.footerBackground}>
+                <Container>
+                    <Typography >
+                        <Link 
+                            className={classes.footerLinks}
+                            href="http://www.nasa.gov/" 
+                            target="_blank" 
+                            rel="noopener"
+                        >
+                            NASA
+                        </Link>
+                        <Link 
+                            className={classes.footerLinks}
+                            href="http://www.caltech.edu/" 
+                            target="_blank" 
+                            rel="noopener"
+                        >
+                            Caltech
+                        </Link>
+                        <Link
+                            className={classes.footerLinks}
+                        >
+                            Privacy
+                        </Link>
+                        <Link
+                            className={classes.footerLinks}
+                        >
+                            Image Policy
+                        </Link>
+                        <Link
+                            className={classes.footerLinks}
+                        >
+                            FAQ
+                        </Link>
+                        <Link
+                            className={classes.footerLinks}
+                        >
+                            Feedback
+                        </Link>
+                    </Typography>
+                </Container>
+            </div>
         );
     }
 }

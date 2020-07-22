@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Typography } from '@material-ui/core';
  
 class ResultCounter extends Component {
     componentDidMount() {
@@ -16,9 +17,9 @@ class ResultCounter extends Component {
         }
 
         return (
-            <div className="resultFilter">
+            <Typography variant="h6">
                 Showing {startNumber}-{endNumber} of {resultsCount} Results
-            </div>
+            </Typography>
         );
     }
 }

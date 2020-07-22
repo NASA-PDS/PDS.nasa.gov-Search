@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = (theme) => ({
     container:{
-        padding: '4px'
+        padding: theme.spacing(1)
     }
 });
  

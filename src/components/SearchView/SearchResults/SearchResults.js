@@ -8,12 +8,21 @@ import ResultFilters from './ResultFilters/ResultFilters';
 import { Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import { Grid, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = (theme) => ({
+    fullHeight: {
+        height: "100vh"
+    }
+});
 
 class SearchResults extends Component {
     componentDidMount() {
     }
 
     render() {
+        const { classes } = this.props;
         let results = [];
         if(this.props.appReducer.searchResults && 
             this.props.appReducer.searchResults.response &&
@@ -41,42 +50,28 @@ class SearchResults extends Component {
         return (
             <div className="searchResults">
                 {results.length < 1? 
-                    <div>
-                        <div className="noResultsMessage">No Results Found.</div>
-
+                    <div className={classes.fullHeight}>
+                        <div>No Results Found.</div>
                         <div>
-                                Try your search for "{this.props.appReducer.searchInput}" again in one of these more specific searches.
-                        </div>
-                        <div className="noResultsProductLevelContainer">
-                            <ProductLevelSuggestions></ProductLevelSuggestions>
+                            Try your search for "{this.props.appReducer.searchInput}" again in one of these more specific searches.
                         </div>
                     </div>
                     :
-                    <div className="columns">
-                        <div className="facetsColumn">
-                            <div className="filtersTitle">
-                                <FontAwesomeIcon icon={faSlidersH}/> Filters
-                            </div>
-                            {facets}
-                        </div>
-                        <div className="resultsColumn">
+                    <Grid container>
+                        <Grid item sm={3}>
                             <div>
-                                <ResultFilters></ResultFilters>
+                                <Typography variant="h6">
+                                    <FontAwesomeIcon icon={faSlidersH}/> Filters
+                                </Typography>
+                                {facets}
                             </div>
-                            <div>
+                        </Grid>
+                        <Grid item sm={9}>
+                            <ResultFilters></ResultFilters>
                                 {searchResults}
-                            </div>
-                            <div>
-                                <Route path="/" component={SearchPagination}/>
-                            </div>
-                        </div>
-                        <div className="productLevelSuggestionsColumn">
-                            <div className="productLevelSuggestionsTitle">
-                                Nodes
-                            </div>
-                            <ProductLevelSuggestions></ProductLevelSuggestions>
-                        </div>
-                    </div>
+                            <Route path="/" component={SearchPagination}/>
+                        </Grid>
+                    </Grid>
                 }
                 
             </div>
@@ -88,4 +83,4 @@ const mapStateToProps = state => ({
     ...state
 });
  
-export default connect(mapStateToProps, null)(SearchResults);  
+export default connect(mapStateToProps, null)(withStyles(useStyles)(SearchResults));  

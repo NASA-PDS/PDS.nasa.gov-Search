@@ -42,26 +42,6 @@ class SearchContextResult extends Component {
     }
 }
 
-/*<div className="card">
-                    <div className="card-image">
-                        <figure className="image">
-                        </figure>
-                    </div>
-                    <div className="card-content">
-                        <p className="title is-6">
-                            { this.props.resource_url ?
-                                <a href={this.props.resource_url} target="_blank">
-                                    <div className="contextResultLink">{this.props.title} </div>
-                                </a>
-                                :
-                                <a href={`https://sbnarchivedemo.psi.edu/?identifier=${this.props.lid}`} target="_blank">
-                                    <div className="contextResultLink">{this.props.title} </div>
-                                </a>
-                            }
-                        </p>
-                    </div>
-                </div>*/
-
 const mapStateToProps = state => ({
     ...state
 });
