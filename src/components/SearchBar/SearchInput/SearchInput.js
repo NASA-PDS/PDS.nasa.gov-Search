@@ -12,7 +12,20 @@ import {
 import urlBuilder from '../../../utils/urlBuilder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Paper, InputBase, IconButton } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
  
+const useStyles = (theme) => ({
+    root:{
+        paddingTop: '2px',
+        paddingBottom: '2px',
+        paddingLeft: '16px',
+        paddingRight: '4px',
+        display: 'flex',
+        alignItems: 'center',
+    }
+});
+
 class SearchInput extends Component {
     componentDidMount() {
         if(this.props.appReducer.searchInput){
@@ -103,9 +116,15 @@ class SearchInput extends Component {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div className="search">
-                <input 
+            <Paper 
+                className={classes.root}
+                variant="outlined"
+            >
+                <InputBase 
+                    variant="outlined"
                     className="searchInput"
                     type="text"
                     placeholder="Search"
@@ -113,14 +132,14 @@ class SearchInput extends Component {
                     onKeyPress={this.handleKeyPress}
                     value={this.props.appReducer.searchInput}
                 />
-                <button 
+                <IconButton 
                     className="searchButton"
                     type="button"
                     onClick={this.handleSearchButtonClick}
                 >
                     <FontAwesomeIcon icon={faSearch} />
-                </button>
-            </div>
+                </IconButton>
+            </Paper>
         );
     }
 }
@@ -139,4 +158,4 @@ const mapDispatchToProps = dispatch => ({
     dispatchClearFacetValues: (input) => dispatch(clearFacetValues(input))
 });
  
-export default connect(mapStateToProps, mapDispatchToProps)(SearchInput);  
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(useStyles)(SearchInput));  

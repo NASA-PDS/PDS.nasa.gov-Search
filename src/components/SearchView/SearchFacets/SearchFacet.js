@@ -40,15 +40,15 @@ class SearchFacet extends Component {
     render() {
         return (
             <div className="searchFacet">
-                <div
+                <span
                     className="searchFacetTitle"
                     data-value={this.props.value}
                     data-title={this.props.title}
                     onClick={this.handleFacetClick}
                 >
                     {this.props.value}
-                </div>
-                <div className="searchFacetDescription">{this.props.count}</div>
+                </span>
+                <span className="searchFacetDescription"> {this.props.count}</span>
             </div>
         );
     }

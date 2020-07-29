@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DataTypeTab from './DataTypeTab';
 import { Route } from 'react-router-dom'
+import { Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = (theme) => ({
+    container:{
+        padding: theme.spacing(1)
+    }
+});
  
 class DataTypeTabs extends Component {
     componentDidMount() {
     }
     render() {
+        const { classes } = this.props;
+
         return (
-            <div className="dataTypeTabs">
+            <Paper variant="outlined" className={classes.container}>
                 <Route path="/" render={(props) => 
                     <DataTypeTab
                         {...props}
@@ -28,7 +38,7 @@ class DataTypeTabs extends Component {
                         }
                     />}
                 />
-            </div>
+            </Paper>
         );
     }
 }
@@ -37,4 +47,4 @@ const mapStateToProps = state => ({
     ...state
 });
  
-export default connect(mapStateToProps, null)(DataTypeTabs);  
+export default connect(mapStateToProps, null)(withStyles(useStyles)(DataTypeTabs));  

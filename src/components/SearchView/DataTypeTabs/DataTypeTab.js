@@ -7,6 +7,7 @@ import {
     setStart
 } from '../../../actions/appAction';
 import urlBuilder from '../../../utils/urlBuilder';
+import { Button } from '@material-ui/core';
  
 class DataTypeTab extends Component {
     componentDidMount() {
@@ -39,26 +40,19 @@ class DataTypeTab extends Component {
     }
 
     render() {
-        let dataTypeTabClass = "button dark dataTabButton";
+        let colorType = 'default';
         if(this.props.isActive){
-            dataTypeTabClass = dataTypeTabClass + " dataTypeTabActive";
-        }
-        if(this.props.isLeftmost){
-            dataTypeTabClass = dataTypeTabClass + " leftmostTypeTab";
-        }
-        if(this.props.isRightmost){
-            dataTypeTabClass = dataTypeTabClass + " rightmostTypeTab";
+            colorType = 'primary';
         }
         
         return (
-            <div>
-                <button 
-                    className={dataTypeTabClass}
-                    onClick={this.handleButtonClick}
-                >
-                    {this.props.title}
-                </button>
-            </div>
+            <Button
+                variant="contained"
+                onClick={this.handleButtonClick}
+                color={colorType}
+            >
+                {this.props.title}
+            </Button>
         );
     }
 }

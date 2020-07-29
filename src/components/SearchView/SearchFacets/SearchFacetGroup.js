@@ -9,6 +9,14 @@ import {
     getDataSearchResults,
     clearFacetValue
 } from '../../../actions/appAction';
+import { Box, Typography } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = (theme) => ({
+    redText: {
+        color: '#FF0000'
+    }
+});
 
 class SearchFacetGroup extends Component {
     componentDidMount() {
@@ -33,6 +41,7 @@ class SearchFacetGroup extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         let facets = [];
 
         if(this.props.facetItems){
@@ -43,21 +52,21 @@ class SearchFacetGroup extends Component {
 
         let facet = '';
         if(this.props.value && this.props.value !== ''){
-            facet = <div className="searchFacetGroup">
-                        <div className="searchFacetGroupTitle">
+            facet = <Typography>
+                        <Box fontWeight="fontWeightBold">
                             {this.props.title}
-                        </div>
-                        <div>
-                            <span>
-                                {this.props.value}
-                            </span>
-                            <span class="facetCloseButton"
+                        </Box>
+                        <Box component="span">
+                           {this.props.value} &nbsp;
+                        </Box>
+                        <Box component="span"> 
+                            <Box component="span" className={classes.redText}
                                 onClick={this.handleClearFacetValue}
                             >
                                 <FontAwesomeIcon icon={faWindowClose}/>
-                            </span>
-                        </div>
-                     </div>
+                            </Box>
+                        </Box>
+                    </Typography>
         }
         
         return (
@@ -66,10 +75,12 @@ class SearchFacetGroup extends Component {
                     facet
                     :
                     facets.length > 0 ?
-                    <div className="searchFacetGroup">
-                        <div className="searchFacetGroupTitle">
+                    <div>
+                        <Typography>
+                            <Box fontWeight="fontWeightBold">
                             {this.props.title}
-                        </div>
+                            </Box>
+                        </Typography>
                         <div>
                            {facets}
                         </div>
@@ -92,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
 });
  
  
-export default connect(mapStateToProps, mapDispatchToProps)(SearchFacetGroup);  
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(useStyles)(SearchFacetGroup));  
