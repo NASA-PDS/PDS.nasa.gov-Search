@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar/SearchBar';
 import BrowseView from './components/BrowseView/BrowseView';
 import SearchView from './components/SearchView/SearchView';
 import Footer from './components/Footer/Footer';
+import Banner from './components/Banner/Banner';
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -80,6 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <Banner></Banner>
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" aria-label="Nasa">
