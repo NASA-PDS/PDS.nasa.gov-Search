@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Banner from './components/Banner/Banner';
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
+import 'fontsource-roboto';
 
 import logo from './assets/images/logo_nasa.png';
 
@@ -82,6 +83,7 @@ class App extends Component {
     return (
       <div className="App">
         <Banner></Banner>
+        
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" aria-label="Nasa">

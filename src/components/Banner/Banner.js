@@ -1,132 +1,341 @@
 import React, { Component } from 'react';
-import { AppBar, IconButton, InputLabel, Link, MenuItem, Select, Toolbar, Typography } from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import Link from '@material-ui/core/Link';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Popover from '@material-ui/core/Popover';
+import Box from '@material-ui/core/Box';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { withStyles } from '@material-ui/core/styles';
-
 import logo from '../../assets/images/pdsLogo.png';
+import infoImg from '../../assets/images/info.png';
 
 const useStyles = (theme) => ({
+    titleLink: {
+        marginRight: '70px',
+        '&:hover':{
+            textDecoration: 'none'
+        }
+    },
+    pdsIcon: {
+        padding: '5px',
+        margin: '0',
+        fontSize: '0'
+    },
     title: {
-        marginRight: theme.spacing(5)
+        fontSize: '16px',
+        color: 'white',
+        marginLeft: '5px'
     },
     headerLogo: {
-        maxHeight: "6vh"
+        height: '25px',
+        width: '48px'
     },
     pdsBanner: {
-        background: "#000000"
+        background: '#000000'
     },
     pdsBannerText:{
-        color: "#ffffff"
+        color: '#ffffff',
+        minHeight: '0',
+        padding: '0px',
+        fontSize: '14px'
     },
     pdsBannerSelect:{
         '&:before': {
-        borderColor: "#000000",
+            borderColor: '#000000'
         },
         '&:after': {
-        borderColor: "#000000",
+            borderColor: '#000000'
         },
         color: 'white'
     },
     whiteColor: {
         color: 'white'
+    },
+    nodeButton: {
+        color: 'white',
+        border: 'none',
+        backgroundColor: 'black',
+        boxShadow: 'none',
+        borderRadius: '0',
+        padding: '5px 0 6px 5px',
+        textTransform: 'none',
+        '&:hover': {
+            backgroundColor: 'rgb(23, 23, 23)',
+            boxShadow: 'none'
+        }
+    },
+    menuLink: {
+        color: 'white',
+        textDecoration: 'none'
+    },
+    listItemText:{
+        '& .MuiTypography-body1':{
+            fontSize: '12px'
+        }
+    },
+    arrowIcon: {
+        marginLeft: '40px'
+    },
+    infoImg: {
+        height: '14px',
+        width: '14px'
+    },
+    infoButton: {
+        padding: '0 0 0 5px'
+    },
+    infoPopover:{
+        pointerEvents: 'none'
+    },
+    infoText: {
+        fontSize: '12px'
     }
 });
 
-class Banner extends Component {
-    handleSelect = (event) => {
-        const selection = event.target.value;
+const StyledMenu = withStyles({
+    paper: {
+        backgroundColor: 'black',
+        borderRadius: '0 0 3px 3px',
+        '& .MuiList-padding': {
+            padding: '11px 5px 11px 5px'
+        },
+    },
+    })((props) => (
+    <Menu
+        elevation={0}
+        getContentAnchorEl={null}
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'center',
+        }}
+        transformOrigin={{
+            vertical: 'top',
+            horizontal: 'center'
+        }}
+        {...props}
+    />
+));
 
-        if(selection === "atmospheres"){
-            window.open("https://pds-atmospheres.nmsu.edu", "_self");
-        }
-        if(selection === "geosciences"){
-            window.open("https://pds-geosciences.wustl.edu", "_self");
-        }
-        if(selection === "cartography"){
-            window.open("https://pds-imaging.jpl.nasa.gov", "_self");
-        }
-        if(selection === "planetaryplasma"){
-            window.open("https://pds-ppi.igpp.ucla.edu", "_self");
-        }
-        if(selection === "rings"){
-            window.open("https://pds-rings.seti.org", "_self");
-        }
-        if(selection === "smallbodies"){
-            window.open("https://pds-smallbodies.astro.umd.edu", "_self");
-        }
-        if(selection === "Navigation And Ancillary Information Facility"){
-            window.open("https://naif.jpl.nasa.gov/naif/", "_self");
-        }
-        if(selection === "engineering"){
-            window.open("https://pds-engineering.jpl.nasa.gov/", "_self");
-        }
-        if(selection === "projectmanagement"){
-            window.open("https://pdsmgmt.gsfc.nasa.gov", "_self");
-        }
+const StyledMenuItem = withStyles((theme) => ({
+    root: {
+       '&:hover': {
+            backgroundColor: 'black',
+            '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+                color: '#64B6F7',
+                textDecoration: 'none'
+            },
+            '& .MuiLink-underlineHover': {
+                textDecoration: 'none'
+            }
+        },
+        padding: '0'
+    }
+}))(MenuItem);
+
+class Banner extends Component {
+    state = {
+        anchorEl: null,
+        infoAnchorEl: null
+    }
+
+    handleClick = (event) => {
+        this.setState({
+            anchorEl: event.currentTarget,
+            infoAnchorEl: this.state.infoAnchorEl
+        });
+    };
+
+    handleClose = () => {
+        this.setState({ 
+            anchorEl: null,
+            infoAnchorEl: this.state.infoAnchorEl
+        });
+    };
+
+    handleInfoMouseEnter = (event) => {
+        this.setState({
+            anchorEl: this.state.anchorEl,
+            infoAnchorEl: event.currentTarget
+        });
+    };
+
+    handleInfoMouseLeave = () => {
+        this.setState({
+            anchorEl: this.state.anchorEl,
+            infoAnchorEl: null
+        });
     };
 
     render() {
         const { classes } = this.props;
+        const { anchorEl, infoAnchorEl } = this.state;
 
         return (
-            <AppBar position="static" className={classes.pdsBanner}>
+            <AppBar position='static' className={classes.pdsBanner}>
                 <Toolbar className={classes.pdsBannerText}>
-                    <IconButton edge="start" aria-label="">
-                        <Link
-                            href="https://pds.nasa.gov" 
-                            rel="noopener"
+                    <Link
+                        className={classes.titleLink}
+                        href='https://pds.nasa.gov' 
+                        rel='noopener'
+                    >
+                        <IconButton 
+                            className={classes.pdsIcon}
+                            edge='start' 
+                            aria-label=''
                         >
-                            <img 
+                            <img
                                 src={logo}
                                 className={classes.headerLogo}
-                                alt=""
+                                alt=''
                             />
-                        </Link>
-                    </IconButton>
-
-                    <Typography variant="h6" className={classes.title}>
-                        Planetary Data System
-                    </Typography>
+                            <Typography className={classes.title}>
+                                Planetary Data System
+                            </Typography>
+                        </IconButton>
+                    </Link>
                     
-                    <InputLabel id="demo-simple-select-outlined-label">
-                        <Typography variant="body1" className={classes.pdsBannerText}>
-                            Find A Node
-                        </Typography>
-                    </InputLabel>
-
-                    <Select
-                        classes={{
-                            icon: classes.whiteColor
-                        }}
-                        className={classes.pdsBannerSelect}
-                        onChange={this.handleSelect}
-                        label="Find A node"
-                        value=""
+                    <IconButton
+                        className={classes.infoButton}
+                        edge='start' 
+                        aria-label=''
+                        variant='contained' 
+                        color='primary' 
+                        onMouseEnter={this.handleInfoMouseEnter} 
+                        onMouseLeave={this.handleInfoMouseLeave} 
                     >
-                        <MenuItem value="atmospheres">
-                            Atmospheres
-                        </MenuItem>
-                        <MenuItem value="geosciences">
-                            Geosciences
-                        </MenuItem>
-                        <MenuItem value="cartography">
-                            Cartography And Imaging Sciences
-                        </MenuItem>
-                        <MenuItem value="planetaryplasma">
-                            Planetary Plasma Interactions
-                        </MenuItem>
-                        <MenuItem value="rings">
-                            Ring-Moon Systems
-                        </MenuItem>
-                        <MenuItem value="smallbodies">
-                            Small Bodies
-                        </MenuItem>
-                        <MenuItem value="engineering">
-                            Engineering Support
-                        </MenuItem>
-                        <MenuItem value="projectmanagement">
-                            Project Management
-                        </MenuItem>
-                    </Select>
+                        <img
+                            src={infoImg}
+                            className={classes.infoImg}
+                            alt=''
+                        />
+                    </IconButton>
+                    <Popover
+                        className={classes.infoPopover}
+                        open={Boolean(infoAnchorEl)}
+                        anchorEl={infoAnchorEl}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left'
+                        }}
+                        transformOrigin={{
+                            horizontal: '40px'
+                        }}
+                        PaperProps={{
+                            style: {
+                                backgroundColor: 'black',
+                                color: 'white',
+                                padding: '15px 12px 12px 12px',
+                                width: '640px'
+                            }
+                        }}
+                    >
+                        <Typography className={classes.infoText}>
+                            <Box component='span' fontWeight='fontWeightBold'>Find a Node</Box> - Use these links to navigate to any of the 8 publicly accessible PDS Nodes.
+                            <br></br>
+                            <br></br>
+                            This bar indicates that you are within the PDS enterprise which includes 6 science discipline nodes and 2 support nodes which are overseen by the Project Management Office at NASA's Goddard Space Flight Center (GSFC). Each node is led by an expert in the subject discipline, supported by an advisory group of other practitioners of that discipline, and subject to selection and approval under a regular NASA Research Announcement.
+                        </Typography>
+                    </Popover>
+                    
+                    <Button
+                        className={classes.nodeButton}
+                        aria-controls='customized-menu'
+                        aria-haspopup='true'
+                        aria-owns={anchorEl ? 'nodes': null}
+                        variant='contained'
+                        onClick={this.handleClick}
+                    >
+                        Find a node
+                        {anchorEl ? <ArrowDropUpIcon className={classes.arrowIcon}/> : <ArrowDropDownIcon className={classes.arrowIcon}/>}
+                    </Button>
+                    <StyledMenu
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={Boolean(anchorEl)}
+                        onClose={this.handleClose}
+                        anchorOrigin={{
+                            horizontal: 'left', 
+                            vertical: 'bottom'
+                        }}
+                        transformOrigin={{
+                            horizontal: '40px'
+                        }}
+                        PaperProps={{
+                            style: {
+                                top: '36px'
+                            }
+                        }}
+                    >
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-atmospheres.nmsu.edu'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Atmospheres (ATM)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-geosciences.wustl.edu'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Geosciences (GEO)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-imaging.jpl.nasa.gov'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Cartography and Imaging Sciences (IMG)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://naif.jpl.nasa.gov/naif'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Navigational and Ancillary Information (NAIF)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-ppi.igpp.ucla.edu'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Planetary Plasma Interactions (PPI)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-rings.seti.org'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Ring-Moon Systems (RMS)'/>
+                            </Link>
+                        </StyledMenuItem>
+                        <StyledMenuItem onClick={this.handleClose}>
+                            <Link
+                                className={classes.menuLink}
+                                href='https://pds-smallbodies.astro.umd.edu'
+                                rel='noopener'
+                            >
+                                <ListItemText className={classes.listItemText} primary='Small Bodies (SBN)'/>
+                            </Link>
+                        </StyledMenuItem>
+                    </StyledMenu>
                 </Toolbar>
             </AppBar>
         );
