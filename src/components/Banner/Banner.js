@@ -104,9 +104,9 @@ const StyledMenu = withStyles({
         borderRadius: '0 0 3px 3px',
         '& .MuiList-padding': {
             padding: '11px 5px 11px 5px'
-        },
+        }
     },
-    })((props) => (
+})((props) => (
     <Menu
         elevation={0}
         getContentAnchorEl={null}
@@ -134,6 +134,16 @@ const StyledMenuItem = withStyles((theme) => ({
                 textDecoration: 'none'
             }
         },
+        '&:focus': {
+            backgroundColor: 'black',
+            '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+                color: '#64B6F7',
+                textDecoration: 'none'
+            },
+            '& .MuiLink-underlineFocus': {
+                textDecoration: 'none'
+            }
+        },
         padding: '0'
     }
 }))(MenuItem);
@@ -144,14 +154,14 @@ class Banner extends Component {
         infoAnchorEl: null
     }
 
-    handleClick = (event) => {
+    handleNodeClick = (event) => {
         this.setState({
             anchorEl: event.currentTarget,
             infoAnchorEl: this.state.infoAnchorEl
         });
     };
 
-    handleClose = () => {
+    handleNodeClose = () => {
         this.setState({ 
             anchorEl: null,
             infoAnchorEl: this.state.infoAnchorEl
@@ -172,6 +182,32 @@ class Banner extends Component {
         });
     };
 
+    handleInfoEnterOpen = (event) => {
+        if (event.key === "Enter") {
+            this.setState({
+                anchorEl: this.state.anchorEl,
+                infoAnchorEl: event.currentTarget
+            });
+        }
+    };
+
+    handleInfoEnterClose = (event) => {
+        if (event.key === "Enter") {
+            this.setState({
+                anchorEl: this.state.anchorEl,
+                infoAnchorEl: null
+            });
+        }
+    };
+
+    handleNodeSelect = (link) => {
+        this.setState({
+            anchorEl: null,
+            infoAnchorEl: this.state.infoAnchorEl
+        });
+        window.location.href = link;
+    };
+
     render() {
         const { classes } = this.props;
         const { anchorEl, infoAnchorEl } = this.state;
@@ -179,6 +215,7 @@ class Banner extends Component {
         return (
             <AppBar position='static' className={classes.pdsBanner}>
                 <Toolbar className={classes.pdsBannerText}>
+                
                     <Link
                         className={classes.titleLink}
                         href='https://pds.nasa.gov' 
@@ -187,7 +224,7 @@ class Banner extends Component {
                         <IconButton 
                             className={classes.pdsIcon}
                             edge='start' 
-                            aria-label=''
+                            aria-label='PDS'
                         >
                             <img
                                 src={logo}
@@ -203,11 +240,13 @@ class Banner extends Component {
                     <IconButton
                         className={classes.infoButton}
                         edge='start' 
-                        aria-label=''
-                        variant='contained' 
-                        color='primary' 
+                        aria-label='info'
+                        aria-controls='info-menu'
+                        variant='contained'
+                        color='primary'
                         onMouseEnter={this.handleInfoMouseEnter} 
-                        onMouseLeave={this.handleInfoMouseLeave} 
+                        onMouseLeave={this.handleInfoMouseLeave}
+                        onKeyDown={this.handleInfoEnterOpen}
                     >
                         <img
                             src={infoImg}
@@ -216,6 +255,7 @@ class Banner extends Component {
                         />
                     </IconButton>
                     <Popover
+                        id="info-menu"
                         className={classes.infoPopover}
                         open={Boolean(infoAnchorEl)}
                         anchorEl={infoAnchorEl}
@@ -234,6 +274,7 @@ class Banner extends Component {
                                 width: '640px'
                             }
                         }}
+                        onKeyDown={this.handleInfoEnterClose}
                     >
                         <Typography className={classes.infoText}>
                             <Box component='span' fontWeight='fontWeightBold'>Find a Node</Box> - Use these links to navigate to any of the 8 publicly accessible PDS Nodes.
@@ -242,23 +283,25 @@ class Banner extends Component {
                             This bar indicates that you are within the PDS enterprise which includes 6 science discipline nodes and 2 support nodes which are overseen by the Project Management Office at NASA's Goddard Space Flight Center (GSFC). Each node is led by an expert in the subject discipline, supported by an advisory group of other practitioners of that discipline, and subject to selection and approval under a regular NASA Research Announcement.
                         </Typography>
                     </Popover>
-                    
+
                     <Button
                         className={classes.nodeButton}
-                        aria-controls='customized-menu'
+                        aria-controls='nodes-menu'
                         aria-haspopup='true'
                         aria-owns={anchorEl ? 'nodes': null}
                         variant='contained'
-                        onClick={this.handleClick}
+                        onClick={this.handleNodeClick}
                     >
                         Find a node
                         {anchorEl ? <ArrowDropUpIcon className={classes.arrowIcon}/> : <ArrowDropDownIcon className={classes.arrowIcon}/>}
                     </Button>
+
                     <StyledMenu
+                        id="nodes-menu"
                         anchorEl={anchorEl}
                         keepMounted
                         open={Boolean(anchorEl)}
-                        onClose={this.handleClose}
+                        onClose={this.handleNodeClose}
                         anchorOrigin={{
                             horizontal: 'left', 
                             vertical: 'bottom'
@@ -272,7 +315,7 @@ class Banner extends Component {
                             }
                         }}
                     >
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-atmospheres.nmsu.edu')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-atmospheres.nmsu.edu'
@@ -281,7 +324,7 @@ class Banner extends Component {
                                 <ListItemText className={classes.listItemText} primary='Atmospheres (ATM)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-geosciences.wustl.edu')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-geosciences.wustl.edu'
@@ -290,7 +333,7 @@ class Banner extends Component {
                                 <ListItemText className={classes.listItemText} primary='Geosciences (GEO)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-imaging.jpl.nasa.gov')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-imaging.jpl.nasa.gov'
@@ -299,16 +342,17 @@ class Banner extends Component {
                                 <ListItemText className={classes.listItemText} primary='Cartography and Imaging Sciences (IMG)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://naif.jpl.nasa.gov/naif')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://naif.jpl.nasa.gov/naif'
                                 rel='noopener'
+                                inputRef={this.textFieldRef}
                             >
                                 <ListItemText className={classes.listItemText} primary='Navigational and Ancillary Information (NAIF)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-ppi.igpp.ucla.edu')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-ppi.igpp.ucla.edu'
@@ -317,7 +361,7 @@ class Banner extends Component {
                                 <ListItemText className={classes.listItemText} primary='Planetary Plasma Interactions (PPI)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-rings.seti.org')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-rings.seti.org'
@@ -326,7 +370,7 @@ class Banner extends Component {
                                 <ListItemText className={classes.listItemText} primary='Ring-Moon Systems (RMS)'/>
                             </Link>
                         </StyledMenuItem>
-                        <StyledMenuItem onClick={this.handleClose}>
+                        <StyledMenuItem onClick={() => {this.handleNodeSelect('https://pds-smallbodies.astro.umd.edu')}}>
                             <Link
                                 className={classes.menuLink}
                                 href='https://pds-smallbodies.astro.umd.edu'
