@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import logo from '../../logo.svg';
+import testImage from '../../nasaTest.jpeg';
 import '../../App.css';
 import TextField from '@mui/material/TextField';
 import { setSearchText } from "../../store/AppSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { getSearchResults } from '../../store/AppSlice'
-
+import { getSearchResults } from '../../store/AppSlice';
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -13,6 +13,10 @@ import Box from '@mui/material/Box';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+
 
 const CustomTextField = styled(TextField)(({ theme }) => ({
   '& label.Mui-focused': {
@@ -39,12 +43,13 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
     },
     '& .MuiInputAdornment-root': {
       color: theme.pdsTextField.iconColor
-    },
-  },
+    }
+  }
 }));
 
 const Content = () => {
-  const [addRequestStatus, setAddRequestStatus] = useState('idle')
+  const [addRequestStatus, setAddRequestStatus] = useState('idle');
+  const [isCardHovered, setIsCardHovered] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -57,12 +62,12 @@ const Content = () => {
 
   const onSearchClicked = async () => {
     try {
-      setAddRequestStatus('pending')
-      await dispatch(getSearchResults(searchText)).unwrap()
+      setAddRequestStatus('pending');
+      await dispatch(getSearchResults(searchText)).unwrap();
     } catch (err) {
-      console.error('Failed to save the post: ', err)
+      console.error('Failed to save the post: ', err);
     } finally {
-      setAddRequestStatus('idle')
+      setAddRequestStatus('idle');
     }
   }
 
@@ -70,6 +75,13 @@ const Content = () => {
     if(e.keyCode === 13) {
       onSearchClicked();
     }
+  }
+
+  const onCardMouseOver = () => {
+    setIsCardHovered(true);
+  }
+  const onCardMouseOut = () => {
+    setIsCardHovered(false);
   }
   
   return (
@@ -111,8 +123,67 @@ const Content = () => {
             />
 
             <p>sorting buttons</p>
-
             <div>
+              <Card 
+                onMouseOver={onCardMouseOver} 
+                onMouseOut={onCardMouseOut} 
+                sx={{ 
+                  maxWidth: 345, 
+                  boxShadow:'none',
+                  ':hover': {
+                    cursor: 'pointer',
+                  },
+                  ':focus': {
+                    border: '1px dotted',
+                  }
+                }}
+              >
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    height="480"
+                    width="312"
+                    image={testImage}
+                    sx={{
+                      transform: isCardHovered? 'scale(1.25)' : 'scale(1)',
+                      transition: 'all .2s ease',
+                      verticalAlign: 'middle'
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '50%',
+                      background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))',
+                      color: 'white',
+                      padding: '20px 20px',
+                    }}
+                  />
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      width: '100%',
+                      color: 'white',
+                      padding: '20px 20px',
+                    }}
+                  >
+                    <Typography variant="h5">Astronauts</Typography>
+                    <Typography variant="body2">Learn about those of the NASA corps who make "space sailing" their career profession.</Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      position: 'relative', top: '-10px', zIndex: '3'
+                    }}
+                  >
+                  </Box>
+                </Box>
+              </Card>
+
               <p>
               This is where the results will go. For now it connects to localhost so it will fail and return nothing.
               </p>
@@ -135,7 +206,6 @@ const Content = () => {
               >
                 Learn React
               </a>
-              
             </div>
           </Grid>
         </Grid>
