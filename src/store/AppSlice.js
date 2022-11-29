@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { client } from '../api/client';
+import Config from '../Config';
 
 const initialState = {
     searchText : '',
@@ -9,7 +10,11 @@ const initialState = {
 export const getSearchResults = createAsyncThunk(
     'posts/getSearchResults',
     async (initialSearch) => {
-        const response = await client.get('http://localhost:8085/PDS_APIs/pds_doi_api/0.2/dois')
+        console.log("initial search", initialSearch);
+        let url = Config.api + '?keyword=' + encodeURI(initialSearch) + '&wt=json';
+        console.log('url', url);
+        const response = await client.get(url);
+        
         return response.data
     }
 )
